@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SKY.AI Summit — AI for Aviation</title>
-
+<title>SKY.AI Summit 2027 — AI for Aviation</title>
 <meta name="description" content="El primer Summit de Aviación + AI en Latinoamérica. Speakers CEO-level de Boeing, Anthropic, Google DeepMind, Airbus, Embraer y más. Hackathon de 29 horas. El Salvador, 23–24 enero 2027.">
 <meta name="keywords" content="SKY AI Summit, aviación, inteligencia artificial, hackathon, El Salvador, KEY Institute, Aerojet, Latinoamérica, AI aviation, summit 2027">
 <meta name="author" content="KEY Institute + Aerojet">
@@ -17,391 +16,405 @@
 <meta property="og:image" content="https://skyaisummit.aeroaiops.com/skyai27.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="SKY AI Summit 2027 — AI for Aviation Hackathon & Summit · El Salvador · 23 enero 2027">
+<meta property="og:image:alt" content="SKY AI Summit 2027 · El Salvador · 23 enero 2027">
 <meta property="og:locale" content="es_SV">
 <meta property="og:site_name" content="SKY AI Summit 2027">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  @font-face{
-    font-family:'Open Sauce One';
-    src: url('https://skyaisummit.aeroaiops.com/fonts/OpenSauceOne-Bold.woff2') format('woff2');
-    font-weight:700;
-    font-display:swap;
-  }
-  :root{
-    --ice:#FCFCFD;
-    --blue:#2A6EF5;
-    --violet:#7654FD;
-    --gray-blue:#B4B7D9;
-    --ink:#070512;
-    --ink-soft:#15102b;
+@font-face{
+  font-family:'Open Sauce One';
+  src:url('https://skyaisummit.aeroaiops.com/fonts/OpenSauceOne-Bold.woff2') format('woff2');
+  font-weight:700; font-display:swap;
+}
+:root{
+  --ice:#FCFCFD;
+  --blue:#2A6EF5;
+  --violet:#7654FD;
+  --gray-blue:#B4B7D9;
+  --ink:#070512;
 
-    /* ===== FONDOS — CAMBIA ESTAS URLs ===== */
-    --bg-hero:       url('https://skyaisummit.aeroaiops.com/fondo3.png');
-    --bg-registro:   url('https://skyaisummit.aeroaiops.com/fondo4.png');
-    --bg-building:   url('https://skyaisummit.aeroaiops.com/fondo5.png');   /* sección "building whats next" */
-    --bg-speakers:   url('https://skyaisummit.aeroaiops.com/fondo3.png');   /* sección Speakers — ventana avión */
-  }
+  /* ===== FONDOS — CAMBIA ESTAS URLs ===== */
+  --bg-hero:      url('https://skyaisummit.aeroaiops.com/fondo3.png');
+  --bg-registro:  url('https://skyaisummit.aeroaiops.com/fondo4.png');
+  --bg-building:  url('https://skyaisummit.aeroaiops.com/fondo5.png');
+  --bg-speakers:  url('https://skyaisummit.aeroaiops.com/fondo3.png');
 
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{ font-family:'Manrope',sans-serif; background:var(--ink); color:var(--ice); overflow-x:hidden; }
+  /* ===== FOTOS DE SPEAKERS (speaker-grid) ===== */
+  --sp1: url('https://skyaisummit.aeroaiops.com/speakers/sp01.jpg');
+  --sp2: url('https://skyaisummit.aeroaiops.com/speakers/sp02.jpg');
+  --sp3: url('https://skyaisummit.aeroaiops.com/speakers/sp03.jpg');
+  --sp4: url('https://skyaisummit.aeroaiops.com/speakers/sp04.jpg');
+  --sp5: url('https://skyaisummit.aeroaiops.com/speakers/sp05.jpg');
+  --sp6: url('https://skyaisummit.aeroaiops.com/speakers/sp06.jpg');
+}
 
-  /* ============ HERO ============ */
-  .hero{
-    position:relative; min-height:100vh; display:flex; flex-direction:column; overflow:hidden;
-    background:
-      radial-gradient(ellipse 1200px 800px at 78% 38%, rgba(118,84,253,0.55), transparent 60%),
-      linear-gradient(115deg,#07050f 0%,#1c1140 28%,#4a2fd1 56%,#2a6ef5 80%,#2a6ef5 100%);
-  }
-  .hero::before{
-    content:""; position:absolute; inset:0;
-    background-image:var(--bg-hero); background-size:cover; background-position:center;
-    pointer-events:none; z-index:0;
-  }
-  .hero::after{
-    content:""; position:absolute; inset:0;
-    background:
-      radial-gradient(ellipse 1200px 800px at 78% 38%, rgba(118,84,253,0.35), transparent 60%),
-      linear-gradient(115deg,rgba(7,5,15,0.85) 0%,rgba(28,17,64,0.55) 28%,rgba(74,47,209,0.3) 56%,rgba(42,110,245,0.15) 100%);
-    pointer-events:none; z-index:1;
-  }
-  .hero-grid,.hero-glow{z-index:2;}
-  nav,.hero-content{z-index:10;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',sans-serif;background:var(--ink);color:var(--ice);overflow-x:hidden;}
 
-  .hero-grid{
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(rgba(180,183,217,0.06) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(180,183,217,0.06) 1px,transparent 1px);
-    background-size:64px 64px;
-    mask-image:linear-gradient(to bottom,black,transparent 75%);
-    pointer-events:none;
-  }
-  .hero-glow{
-    position:absolute; width:900px; height:900px; right:-220px; top:-260px;
-    background:radial-gradient(circle,rgba(42,110,245,0.45),transparent 65%);
-    filter:blur(10px); pointer-events:none;
-  }
+/* ─── HERO ─────────────────────────────── */
+.hero{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;
+  background:
+    radial-gradient(ellipse 1200px 800px at 78% 38%,rgba(118,84,253,.55),transparent 60%),
+    linear-gradient(115deg,#07050f 0%,#1c1140 28%,#4a2fd1 56%,#2a6ef5 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:var(--bg-hero);background-size:cover;background-position:center;
+  pointer-events:none;z-index:0;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 1200px 800px at 78% 38%,rgba(118,84,253,.35),transparent 60%),
+    linear-gradient(115deg,rgba(7,5,15,.85) 0%,rgba(28,17,64,.55) 28%,rgba(74,47,209,.3) 56%,rgba(42,110,245,.15) 100%);
+  pointer-events:none;z-index:1;
+}
+.hero-grid,.hero-glow{z-index:2;}
+nav,.hero-content{z-index:10;}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(180,183,217,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(180,183,217,.06) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:linear-gradient(to bottom,black,transparent 75%);pointer-events:none;
+}
+.hero-glow{
+  position:absolute;width:900px;height:900px;right:-220px;top:-260px;
+  background:radial-gradient(circle,rgba(42,110,245,.45),transparent 65%);filter:blur(10px);pointer-events:none;
+}
+nav{
+  position:relative;z-index:20;display:flex;align-items:center;
+  justify-content:space-between;padding:34px 56px 0;flex-wrap:wrap;gap:18px;
+}
+.logo{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.7rem;
+  letter-spacing:.5px;color:var(--ice);display:flex;align-items:center;gap:8px;
+}
+.logo .dot{
+  width:9px;height:9px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 0 12px var(--blue);
+}
+.nav-links{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.pill{
+  font-family:'Manrope',sans-serif;font-size:.92rem;font-weight:600;color:var(--ice);
+  text-decoration:none;padding:13px 26px;border-radius:999px;
+  background:rgba(7,5,18,.55);border:1px solid rgba(180,183,217,.18);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);white-space:nowrap;transition:all .25s;
+}
+.pill:hover{background:rgba(180,183,217,.12);border-color:rgba(252,252,253,.4);transform:translateY(-1px);}
+.pill.cta-summit{background:var(--blue);border-color:var(--blue);}
+.pill.cta-summit:hover{background:#1c5be0;box-shadow:0 6px 24px rgba(42,110,245,.55);}
+.pill.cta-hack{background:var(--violet);border-color:var(--violet);}
+.pill.cta-hack:hover{background:#5f3ff0;box-shadow:0 6px 24px rgba(118,84,253,.55);}
+.hero-content{
+  position:relative;z-index:10;flex:1;display:flex;flex-direction:column;
+  justify-content:center;padding:60px 56px 90px;max-width:1180px;
+}
+.eyebrow{font-size:.95rem;font-weight:600;color:var(--gray-blue);letter-spacing:.5px;margin-bottom:18px;}
+.eyebrow span{color:var(--ice);font-weight:700;}
+h1{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:clamp(2.4rem,5.6vw,5.2rem);line-height:1.04;letter-spacing:-1px;color:var(--ice);max-width:920px;
+}
+h1 b{
+  font-weight:700;
+  background:linear-gradient(100deg,var(--ice) 0%,#cfd6ff 35%,var(--gray-blue) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-meta{margin-top:42px;display:flex;gap:38px;flex-wrap:wrap;}
+.meta-item{display:flex;flex-direction:column;gap:4px;}
+.meta-label{font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray-blue);font-weight:700;}
+.meta-value{font-size:1.02rem;font-weight:600;color:var(--ice);}
+.hero-bottom-line{
+  position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(180,183,217,.35),transparent);
+}
 
-  /* ===== NAVBAR ===== */
-  nav{
-    position:relative; z-index:20; display:flex; align-items:center;
-    justify-content:space-between; padding:34px 56px 0; flex-wrap:wrap; gap:18px;
-  }
-  .logo{
-    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.7rem;
-    letter-spacing:0.5px; color:var(--ice); display:flex; align-items:center; gap:8px;
-  }
-  .logo .dot{
-    width:9px; height:9px; border-radius:50%;
-    background:linear-gradient(135deg,var(--blue),var(--violet));
-    box-shadow:0 0 12px var(--blue);
-  }
-  .nav-links{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-  .pill{
-    font-family:'Manrope',sans-serif; font-size:0.92rem; font-weight:600; color:var(--ice);
-    text-decoration:none; padding:13px 26px; border-radius:999px;
-    background:rgba(7,5,18,0.55); border:1px solid rgba(180,183,217,0.18);
-    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-    white-space:nowrap; transition:all .25s ease;
-  }
-  .pill:hover{ background:rgba(180,183,217,0.12); border-color:rgba(252,252,253,0.4); transform:translateY(-1px); }
-  .pill.cta-summit{ background:var(--blue); border-color:var(--blue); }
-  .pill.cta-summit:hover{ background:#1c5be0; box-shadow:0 6px 24px rgba(42,110,245,0.55); }
-  .pill.cta-hack{ background:var(--violet); border-color:var(--violet); }
-  .pill.cta-hack:hover{ background:#5f3ff0; box-shadow:0 6px 24px rgba(118,84,253,0.55); }
+/* ─── REGISTRO ──────────────────────────── */
+#registro{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;overflow:hidden;background:var(--ink);padding:0;
+}
+#registro .registro-bg{position:absolute;inset:0;background-image:var(--bg-registro);background-size:cover;background-position:center;z-index:0;}
+#registro .registro-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,5,18,.15) 0%,rgba(7,5,18,.05) 45%,rgba(7,5,18,.55) 75%,var(--ink) 100%);z-index:1;
+}
+.registro-buttons{
+  position:relative;z-index:5;display:flex;gap:24px;flex-wrap:wrap;
+  justify-content:center;padding:0 24px;margin-top:18vh;margin-bottom:auto;
+}
+.btn-registro{
+  font-family:'Manrope',sans-serif;font-size:1.55rem;font-weight:500;color:var(--ice);
+  text-decoration:none;padding:26px 56px;border-radius:999px;
+  background:rgba(118,84,253,.65);border:1px solid rgba(252,252,253,.25);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 8px 32px rgba(7,5,18,.35);transition:all .25s;white-space:nowrap;
+}
+.btn-registro b{font-weight:700;}
+.btn-registro:hover{background:rgba(118,84,253,.88);transform:translateY(-2px);}
+.registro-wordmark{
+  position:relative;z-index:4;width:100%;text-align:center;
+  line-height:.82;margin-top:6vh;padding-bottom:2vh;pointer-events:none;user-select:none;
+}
+.registro-wordmark span{
+  font-family:'Open Sauce One','Space Grotesk',sans-serif;font-weight:700;
+  font-size:min(28vw,50rem);color:rgba(118,84,253,.65);letter-spacing:-.02em;
+}
 
-  /* ===== HERO CONTENT ===== */
-  .hero-content{
-    position:relative; z-index:10; flex:1; display:flex; flex-direction:column;
-    justify-content:center; padding:60px 56px 90px; max-width:1180px;
-  }
-  .eyebrow{ font-size:0.95rem; font-weight:600; color:var(--gray-blue); letter-spacing:0.5px; margin-bottom:18px; }
-  .eyebrow span{ color:var(--ice); font-weight:700; }
-  h1{
-    font-family:'Space Grotesk',sans-serif; font-weight:500;
-    font-size:clamp(2.4rem,5.6vw,5.2rem); line-height:1.04; letter-spacing:-1px;
-    color:var(--ice); max-width:920px;
-  }
-  h1 b{
-    font-weight:700;
-    background:linear-gradient(100deg,var(--ice) 0%,#cfd6ff 35%,var(--gray-blue) 100%);
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  .hero-meta{ margin-top:42px; display:flex; gap:38px; flex-wrap:wrap; }
-  .meta-item{ display:flex; flex-direction:column; gap:4px; }
-  .meta-label{ font-size:0.72rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--gray-blue); font-weight:700; }
-  .meta-value{ font-size:1.02rem; font-weight:600; color:var(--ice); }
-  .hero-bottom-line{
-    position:absolute; bottom:0; left:0; right:0; height:1px;
-    background:linear-gradient(90deg,transparent,rgba(180,183,217,0.35),transparent);
-  }
+/* ─── BUILDING WHATS NEXT ───────────────── */
+#building{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+#building .building-bg{position:absolute;inset:0;background-image:var(--bg-building);background-size:cover;background-position:center;z-index:0;}
+#building .building-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(7,5,18,.45) 0%,rgba(7,5,18,.1) 50%,transparent 100%);z-index:1;
+}
+.fids-board{
+  position:relative;z-index:5;font-family:'Courier New',Courier,monospace;font-weight:bold;
+  font-size:.95rem;letter-spacing:.1em;line-height:2;
+  background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.08);
+  padding:12px 20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+.fids-row{display:flex;align-items:center;gap:16px;white-space:nowrap;}
+.fids-time{color:var(--ice);min-width:48px;}
+.fids-dest{color:#F5C518;min-width:120px;}
+.fids-flight{color:var(--ice);min-width:65px;}
+.fids-gate{color:var(--ice);min-width:38px;}
+.fids-status{font-weight:bold;}
+.fids-status.on-time{color:#4ade80;}
+.fids-status.boarding{color:#60a5fa;}
+.fids-status.delayed{color:#f87171;}
+.fids-blip{color:#555;animation:blink .9s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.building-fids-wrap{position:relative;z-index:5;display:flex;justify-content:flex-end;padding:32px 52px 0;}
+.building-brand{
+  position:absolute;top:36px;right:54px;z-index:6;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.45rem;color:var(--ice);
+}
+.building-content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 56px 70px;}
+.building-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(4.5rem,9vw,11rem);line-height:.95;letter-spacing:-2px;
+  color:var(--ice);margin-bottom:56px;max-width:1100px;
+}
+.building-ctas{display:flex;flex-direction:column;align-items:center;gap:18px;}
+.building-ctas-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+.btn-building{
+  font-family:'Manrope',sans-serif;font-size:1.2rem;font-weight:500;color:var(--ice);
+  text-decoration:none;padding:20px 48px;border-radius:999px;
+  background:rgba(118,84,253,.65);border:1px solid rgba(252,252,253,.22);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 6px 28px rgba(7,5,18,.4);transition:all .25s;white-space:nowrap;
+}
+.btn-building b{font-weight:800;}
+.btn-building:hover{background:rgba(118,84,253,.88);transform:translateY(-2px);}
+.btn-building.btn-sponsor{background:rgba(7,5,18,.5);border-color:rgba(252,252,253,.3);font-size:1.05rem;}
+.btn-building.btn-sponsor:hover{background:rgba(252,252,253,.12);border-color:rgba(252,252,253,.6);}
 
-  /* ============ SECTION: REGISTRO ============ */
-  #registro{
-    position:relative; min-height:100vh; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; overflow:hidden; background:var(--ink); padding:0;
-  }
-  #registro .registro-bg{
-    position:absolute; inset:0; background-image:var(--bg-registro);
-    background-size:cover; background-position:center; z-index:0;
-  }
-  #registro .registro-overlay{
-    position:absolute; inset:0;
-    background:linear-gradient(180deg,rgba(7,5,18,0.15) 0%,rgba(7,5,18,0.05) 45%,rgba(7,5,18,0.55) 75%,var(--ink) 100%);
-    z-index:1;
-  }
-  .registro-buttons{
-    position:relative; z-index:5; display:flex; gap:24px; flex-wrap:wrap;
-    justify-content:center; padding:0 24px; margin-top:18vh; margin-bottom:auto;
-  }
-  .btn-registro{
-    font-family:'Manrope',sans-serif; font-size:1.55rem; font-weight:500; color:var(--ice);
-    text-decoration:none; padding:26px 56px; border-radius:999px;
-    background:rgba(118,84,253,0.65); border:1px solid rgba(252,252,253,0.25);
-    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
-    box-shadow:0 8px 32px rgba(7,5,18,0.35); transition:all .25s ease; white-space:nowrap;
-  }
-  .btn-registro b{ font-weight:700; }
-  .btn-registro:hover{ background:rgba(118,84,253,0.85); transform:translateY(-2px); box-shadow:0 12px 40px rgba(118,84,253,0.45); }
-  .registro-wordmark{
-    position:relative; z-index:4; width:100%; text-align:center;
-    line-height:0.82; margin-top:6vh; padding-bottom:2vh; pointer-events:none; user-select:none;
-  }
-  .registro-wordmark span{
-    font-family:'Open Sauce One','Space Grotesk',sans-serif; font-weight:700;
-    font-size:min(28vw,50rem); color:rgba(118,84,253,0.65); letter-spacing:-0.02em;
-  }
+/* ─── SPEAKERS (ventana + FIDS) ─────────── */
+#speakers{position:relative;background:var(--ink);padding:0;overflow:hidden;}
+.speakers-fids-top{position:relative;z-index:5;padding:52px 52px 0;display:flex;flex-direction:column;}
+.speakers-header-wrap{
+  position:relative;z-index:4;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;min-height:65vh;padding:0 52px;
+}
+.speakers-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.8rem,5.5vw,6.2rem);line-height:1;letter-spacing:-1.5px;color:var(--ice);
+}
+.speakers-window{
+  justify-self:center;
+  width:clamp(300px,38vw,560px);height:clamp(380px,48vw,700px);
+  border-radius:50%/42%;
+  background-image:var(--bg-speakers);background-size:cover;background-position:center;
+  box-shadow:0 0 80px rgba(0,0,0,.8),0 0 0 3px rgba(180,183,217,.12);overflow:hidden;
+}
 
-  /* ============ SECTION: BUILDING WHATS NEXT ============ */
-  #building{
-    position:relative; min-height:100vh; display:flex; flex-direction:column; overflow:hidden;
-  }
-  #building .building-bg{
-    position:absolute; inset:0; background-image:var(--bg-building);
-    background-size:cover; background-position:center; z-index:0;
-  }
-  /* overlay suave para contraste del texto */
-  #building .building-overlay{
-    position:absolute; inset:0;
-    background:linear-gradient(135deg,rgba(7,5,18,0.45) 0%,rgba(7,5,18,0.1) 50%,rgba(7,5,18,0.05) 100%);
-    z-index:1;
-  }
+/* ─── SPEAKER CARD GRID (nueva sección) ─── */
+#speaker-grid{background:var(--ink);padding:0;}
+.spk-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.spk-card{display:flex;min-height:300px;overflow:hidden;}
+.spk-photo{
+  width:55%;flex-shrink:0;
+  background-size:cover;background-position:center top;
+  background-color:#1a1a2e;
+}
+/* Asigna cada foto via :nth-child */
+.spk-card:nth-child(1) .spk-photo{background-image:var(--sp1);}
+.spk-card:nth-child(2) .spk-photo{background-image:var(--sp2);}
+.spk-card:nth-child(3) .spk-photo{background-image:var(--sp3);}
+.spk-card:nth-child(4) .spk-photo{background-image:var(--sp4);}
+.spk-card:nth-child(5) .spk-photo{background-image:var(--sp5);}
+.spk-card:nth-child(6) .spk-photo{background-image:var(--sp6);}
 
-  /* --- FIDS board (marcador de vuelos) --- */
-  .fids-board{
-    position:relative; z-index:5;
-    font-family:'Courier New',Courier,monospace; font-weight:bold;
-    font-size:0.95rem; letter-spacing:0.1em; line-height:2;
-    background:rgba(0,0,0,0.72); border:1px solid rgba(255,255,255,0.08);
-    padding:12px 20px; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
-  }
-  .fids-row{ display:flex; align-items:center; gap:16px; white-space:nowrap; }
-  .fids-time{ color:var(--ice); min-width:48px; }
-  .fids-dest{ color:#F5C518; min-width:120px; }
-  .fids-flight{ color:var(--ice); min-width:60px; }
-  .fids-gate{ color:var(--ice); min-width:38px; }
-  .fids-status{ font-weight:bold; }
-  .fids-status.on-time{ color:#4ade80; }
-  .fids-status.boarding{ color:#60a5fa; }
-  .fids-status.delayed{ color:#f87171; }
-  .fids-blip{ color:#555; animation:blink 0.9s step-end infinite; }
-  @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.spk-info{
+  flex:1;padding:36px 30px;display:flex;flex-direction:column;justify-content:center;
+}
+/* panel de colores alternados — igual al Figma */
+.spk-card:nth-child(1) .spk-info{background:var(--violet);}
+.spk-card:nth-child(2) .spk-info{background:rgba(7,5,18,.92);}
+.spk-card:nth-child(3) .spk-info{background:var(--blue);}
+.spk-card:nth-child(4) .spk-info{background:#9b72ff;}   /* violet claro */
+.spk-card:nth-child(5) .spk-info{background:#000;}
+.spk-card:nth-child(6) .spk-info{background:var(--blue);}
 
-  .building-fids-wrap{
-    position:relative; z-index:5; display:flex; justify-content:flex-end; padding:32px 52px 0;
-  }
+.spk-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.55rem;color:var(--ice);line-height:1.2;margin-bottom:6px;}
+.spk-role{font-size:1rem;font-weight:600;color:var(--ice);margin-bottom:14px;}
+.spk-company{font-size:.82rem;color:rgba(252,252,253,.7);letter-spacing:.3px;}
 
-  /* --- SKY.AI brand top-right --- */
-  .building-brand{
-    position:absolute; top:36px; right:54px; z-index:6;
-    font-family:'Space Grotesk',sans-serif; font-weight:700;
-    font-size:1.45rem; letter-spacing:0.5px; color:var(--ice);
-  }
+/* ─── SOBRE EL EVENTO ───────────────────── */
+#sobre{background:var(--violet);padding:0;overflow:hidden;}
 
-  /* --- "building whats next" title --- */
-  .building-content{
-    position:relative; z-index:5; flex:1; display:flex; flex-direction:column;
-    justify-content:flex-end; padding:0 56px 70px;
-  }
-  .building-title{
-    font-family:'Space Grotesk',sans-serif; font-weight:700;
-    font-size:clamp(4.5rem,9vw,11rem); line-height:0.95; letter-spacing:-2px;
-    color:var(--ice); margin-bottom:56px; max-width:1100px;
-  }
-  .building-title span{ display:block; }
+.sobre-wordmark{
+  text-align:center;line-height:.8;padding-top:32px;
+  pointer-events:none;user-select:none;overflow:hidden;
+}
+.sobre-wordmark span{
+  font-family:'Open Sauce One','Space Grotesk',sans-serif;font-weight:700;
+  font-size:min(30vw,55rem);color:rgba(255,255,255,.18);letter-spacing:-.02em;
+}
 
-  /* --- 3 botones de registro --- */
-  .building-ctas{ display:flex; flex-direction:column; align-items:center; gap:18px; }
-  .building-ctas-row{ display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
-  .btn-building{
-    font-family:'Manrope',sans-serif; font-size:1.2rem; font-weight:500; color:var(--ice);
-    text-decoration:none; padding:20px 48px; border-radius:999px;
-    background:rgba(118,84,253,0.65); border:1px solid rgba(252,252,253,0.22);
-    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
-    box-shadow:0 6px 28px rgba(7,5,18,0.4); transition:all .25s ease; white-space:nowrap;
-  }
-  .btn-building b{ font-weight:800; }
-  .btn-building:hover{ background:rgba(118,84,253,0.88); transform:translateY(-2px); box-shadow:0 10px 36px rgba(118,84,253,0.5); }
-  .btn-building.btn-sponsor{
-    background:rgba(7,5,18,0.5); border-color:rgba(252,252,253,0.3); font-size:1.05rem;
-  }
-  .btn-building.btn-sponsor:hover{ background:rgba(252,252,253,0.12); border-color:rgba(252,252,253,0.6); }
+.sobre-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  padding:60px 64px 0;
+}
+.sobre-label{font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px;}
+.sobre-heading{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.15;
+  color:var(--ice);text-transform:uppercase;letter-spacing:.5px;margin-bottom:28px;
+}
+.sobre-copy p{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,.88);margin-bottom:16px;}
+.sobre-venue{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.45rem;color:var(--ice);line-height:1.3;margin-bottom:18px;}
+.sobre-venue-copy{font-size:1rem;line-height:1.7;color:rgba(255,255,255,.85);margin-bottom:32px;}
 
-  /* ============ SECTION: SPEAKERS ============ */
-  #speakers{
-    position:relative; background:var(--ink); padding:0; overflow:hidden;
-  }
+.sobre-info-boxes{display:flex;flex-direction:column;gap:12px;}
+.sobre-info-box{
+  border:1.5px solid rgba(255,255,255,.45);
+  padding:18px 24px;color:var(--ice);font-weight:600;font-size:1rem;
+  letter-spacing:.2px;border-radius:6px;
+}
 
-  /* ticker FIDS superior */
-  .speakers-fids-top{
-    position:relative; z-index:5; padding:0 52px; padding-top:52px;
-    display:flex; flex-direction:column; gap:0;
-  }
+.sobre-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  padding:48px 64px 72px;
+}
+.stat-card{
+  border-radius:20px;padding:44px 28px;text-align:center;
+}
+.stat-card.dark{background:#0c0c0c;}
+.stat-card.v1{background:#6b3ff5;}
+.stat-card.v2{background:#7654FD;}
+.stat-card.v3{background:#5b32e8;}
+.stat-num{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.8rem,4vw,4.2rem);color:var(--ice);line-height:1;display:block;
+}
+.stat-lbl{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1px;display:block;margin-top:8px;}
 
-  /* cabecera con ventana de avión */
-  .speakers-header-wrap{
-    position:relative; z-index:4; display:grid;
-    grid-template-columns:1fr 1fr; align-items:center;
-    min-height:65vh; padding:0 52px;
-  }
+/* ─── AGENDA DEL DÍA ────────────────────── */
+#agenda{background:#6b3ae6;padding:80px 64px;}   /* ligeramente más oscuro que violet */
+.agenda-header{text-align:center;margin-bottom:40px;}
+.agenda-pre{font-size:.88rem;color:rgba(255,255,255,.6);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;}
+.agenda-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.8rem,5vw,5.5rem);color:var(--ice);letter-spacing:-.5px;
+}
+.agenda-tabs{display:flex;justify-content:center;gap:14px;margin-bottom:48px;flex-wrap:wrap;}
+.agenda-tab{
+  font-family:'Manrope',sans-serif;font-size:1.05rem;font-weight:600;color:var(--ice);
+  padding:16px 34px;border-radius:999px;border:1.5px solid rgba(255,255,255,.4);
+  background:transparent;cursor:pointer;transition:all .2s;
+}
+.agenda-tab:hover{background:rgba(255,255,255,.12);}
+.agenda-tab.active{background:var(--ice);color:#5a30d0;border-color:var(--ice);}
 
-  .speakers-title-block{ position:relative; z-index:6; }
-  .speakers-title{
-    font-family:'Space Grotesk',sans-serif; font-weight:700;
-    font-size:clamp(2.8rem,5.5vw,6.2rem); line-height:1.0; letter-spacing:-1.5px; color:var(--ice);
-  }
+.agenda-list{display:none;}
+.agenda-list.active{display:block;}
+.agenda-row{
+  display:grid;grid-template-columns:2fr 1.2fr 2fr;
+  padding:22px 0;border-bottom:1px solid rgba(255,255,255,.2);gap:20px;align-items:center;
+}
+.agenda-row:last-child{border-bottom:none;}
+.agenda-act{font-weight:700;font-size:1.02rem;color:var(--ice);}
+.agenda-time{font-size:.95rem;color:rgba(255,255,255,.75);font-weight:500;}
+.agenda-loc{font-size:.95rem;color:rgba(255,255,255,.75);text-align:right;}
 
-  /* ventana oval de avión */
-  .speakers-window{
-    position:relative; z-index:5; justify-self:center;
-    width:clamp(300px,38vw,560px); height:clamp(380px,48vw,700px);
-    border-radius:50%/42%;
-    background-image:var(--bg-speakers);
-    background-size:cover; background-position:center;
-    box-shadow:0 0 80px rgba(0,0,0,0.8), 0 0 0 3px rgba(180,183,217,0.12);
-    overflow:hidden;
-  }
-  .speakers-window::after{
-    content:""; position:absolute; inset:0;
-    background:linear-gradient(180deg,rgba(7,5,18,0.05) 0%,rgba(7,5,18,0.2) 100%);
-  }
+/* ─── QUE ES ────────────────────────────── */
+section{padding:120px 56px;position:relative;}
+.section-label{font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:18px;}
+#que-es{background:var(--ice);color:var(--ink);}
+#que-es .section-label{color:var(--blue);}
+.que-es-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;max-width:1280px;margin:0 auto;}
+.que-es-grid h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1.18;letter-spacing:-.5px;color:var(--ink);}
+.que-es-grid h2 i{font-style:normal;color:var(--blue);}
+.que-es-copy p{font-size:1.08rem;line-height:1.7;color:#3b3b4d;margin-bottom:20px;}
+.organizers{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+.org-chip{font-size:.85rem;font-weight:700;padding:10px 20px;border-radius:999px;border:1.5px solid #1f1840;color:#1f1840;}
 
-  /* fids mid overlapping window */
-  .speakers-fids-mid{
-    position:absolute; bottom:0; left:0; right:0; z-index:7;
-    padding:0 52px 28px;
-  }
+/* ─── HACKATHON ─────────────────────────── */
+#hack{background:linear-gradient(120deg,#0c0820 0%,#221356 55%,#2a6ef5 130%);padding:90px 56px;}
+.hack-wrap{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+.hack-wrap h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.2;color:var(--ice);margin-bottom:20px;}
+.hack-wrap p{color:var(--gray-blue);font-size:1.05rem;line-height:1.7;}
+.timeline{display:flex;flex-direction:column;}
+.t-item{display:flex;gap:22px;padding:22px 0;border-bottom:1px solid rgba(180,183,217,.18);}
+.t-item:last-child{border-bottom:none;}
+.t-dot{width:11px;height:11px;border-radius:50%;margin-top:6px;background:var(--ice);flex-shrink:0;box-shadow:0 0 10px rgba(252,252,253,.6);}
+.t-text .t-day{font-weight:700;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--gray-blue);margin-bottom:4px;}
+.t-text .t-desc{font-size:1.05rem;font-weight:600;color:var(--ice);}
 
-  /* cards grid */
-  .speakers-grid-wrap{ padding:56px 52px 80px; }
-  .speakers-grid{
-    display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-    gap:0; border-top:1px solid rgba(180,183,217,0.14);
-  }
-  .speaker-card{
-    display:flex; align-items:stretch; border-right:1px solid rgba(180,183,217,0.14);
-    border-bottom:1px solid rgba(180,183,217,0.14);
-    overflow:hidden; min-height:220px;
-  }
-  .speaker-card:last-child{ border-right:none; }
+/* ─── CIERRE CTA ────────────────────────── */
+#cierre{background:var(--ice);color:var(--ink);text-align:center;padding:120px 24px 80px;}
+#cierre h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(2rem,4vw,3.4rem);letter-spacing:-1px;max-width:780px;margin:0 auto 36px;line-height:1.15;}
+.cta-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.btn-dark{background:var(--ink);color:var(--ice);padding:16px 34px;border-radius:999px;font-weight:700;text-decoration:none;font-size:.95rem;transition:all .25s;}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.2);}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink);padding:16px 34px;border-radius:999px;font-weight:700;text-decoration:none;font-size:.95rem;transition:all .25s;}
+.btn-outline:hover{background:var(--ink);color:var(--ice);}
 
-  .speaker-photo{
-    width:160px; flex-shrink:0; background:#1a1a2e;
-    background-size:cover; background-position:center top;
-  }
-  /* Asigna fotos: .speaker-card:nth-child(N) .speaker-photo { background-image: url('...'); } */
+footer{background:var(--ink);color:var(--gray-blue);text-align:center;padding:30px;font-size:.85rem;}
 
-  .speaker-info{
-    flex:1; padding:28px 26px; display:flex; flex-direction:column; justify-content:center;
-    background:rgba(118,84,253,0.18);
-    border-left:3px solid var(--violet);
-  }
-  .speaker-info.dark{
-    background:rgba(15,12,32,0.9); border-left-color:rgba(180,183,217,0.2);
-  }
-  .speaker-name{
-    font-family:'Space Grotesk',sans-serif; font-weight:700;
-    font-size:1.35rem; color:var(--ice); line-height:1.2; margin-bottom:6px;
-  }
-  .speaker-role{ font-size:0.92rem; font-weight:600; color:var(--ice); margin-bottom:10px; }
-  .speaker-company{ font-size:0.8rem; color:var(--gray-blue); letter-spacing:0.3px; }
-
-  /* ============ SECTION: QUE ES ============ */
-  section{ padding:120px 56px; position:relative; }
-  .section-label{ font-size:0.78rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--violet); margin-bottom:18px; }
-  #que-es{ background:var(--ice); color:var(--ink); }
-  #que-es .section-label{ color:var(--blue); }
-  .que-es-grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:64px; align-items:start; max-width:1280px; margin:0 auto; }
-  .que-es-grid h2{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(1.9rem,3.4vw,2.9rem); line-height:1.18; letter-spacing:-0.5px; color:var(--ink); }
-  .que-es-grid h2 i{ font-style:normal; color:var(--blue); }
-  .que-es-copy p{ font-size:1.08rem; line-height:1.7; color:#3b3b4d; margin-bottom:20px; }
-  .organizers{ display:flex; gap:14px; margin-top:30px; flex-wrap:wrap; }
-  .org-chip{ font-size:0.85rem; font-weight:700; padding:10px 20px; border-radius:999px; border:1.5px solid #1f1840; color:#1f1840; }
-
-  /* ============ HACKATHON STRIP ============ */
-  #hack{ background:linear-gradient(120deg,#0c0820 0%,#221356 55%,#2a6ef5 130%); padding:90px 56px; }
-  .hack-wrap{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
-  .hack-wrap h2{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(1.8rem,3vw,2.6rem); line-height:1.2; color:var(--ice); margin-bottom:20px; }
-  .hack-wrap p{ color:var(--gray-blue); font-size:1.05rem; line-height:1.7; }
-  .timeline{ display:flex; flex-direction:column; }
-  .t-item{ display:flex; gap:22px; padding:22px 0; border-bottom:1px solid rgba(180,183,217,0.18); }
-  .t-item:last-child{ border-bottom:none; }
-  .t-dot{ width:11px; height:11px; border-radius:50%; margin-top:6px; background:var(--ice); flex-shrink:0; box-shadow:0 0 10px rgba(252,252,253,0.6); }
-  .t-text .t-day{ font-weight:700; font-size:0.78rem; letter-spacing:1px; text-transform:uppercase; color:var(--gray-blue); margin-bottom:4px; }
-  .t-text .t-desc{ font-size:1.05rem; font-weight:600; color:var(--ice); }
-
-  /* ============ FOOTER CTA ============ */
-  #cierre{ background:var(--ice); color:var(--ink); text-align:center; padding:120px 24px 80px; }
-  #cierre h2{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(2rem,4vw,3.4rem); letter-spacing:-1px; max-width:780px; margin:0 auto 36px; line-height:1.15; }
-  .cta-row{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
-  .btn-dark{ background:var(--ink); color:var(--ice); padding:16px 34px; border-radius:999px; font-weight:700; text-decoration:none; font-size:0.95rem; transition:all .25s ease; }
-  .btn-dark:hover{ transform:translateY(-2px); box-shadow:0 10px 30px rgba(0,0,0,0.2); }
-  .btn-outline{ border:1.5px solid var(--ink); color:var(--ink); padding:16px 34px; border-radius:999px; font-weight:700; text-decoration:none; font-size:0.95rem; transition:all .25s ease; }
-  .btn-outline:hover{ background:var(--ink); color:var(--ice); }
-
-  footer{ background:var(--ink); color:var(--gray-blue); text-align:center; padding:30px; font-size:0.85rem; }
-
-  /* ============ RESPONSIVE ============ */
-  @media(max-width:880px){
-    nav{ padding:24px 24px 0; }
-    .hero-content{ padding:50px 24px 70px; }
-    section{ padding:80px 24px; }
-    .que-es-grid,.hack-wrap{ grid-template-columns:1fr; }
-    .btn-registro{ font-size:1.1rem; padding:18px 32px; }
-    .registro-buttons{ margin-top:14vh; gap:14px; }
-    .building-content{ padding:0 24px 60px; }
-    .building-fids-wrap{ padding:24px 24px 0; }
-    .building-brand{ right:24px; }
-    .building-title{ font-size:clamp(3.2rem,12vw,6rem); letter-spacing:-1px; }
-    .btn-building{ font-size:1rem; padding:16px 32px; }
-    .speakers-header-wrap{ grid-template-columns:1fr; min-height:auto; padding:40px 24px; gap:40px; }
-    .speakers-title{ font-size:clamp(2.2rem,8vw,3.8rem); }
-    .speakers-window{ width:280px; height:340px; justify-self:start; }
-    .speakers-fids-top,.speakers-grid-wrap{ padding-left:24px; padding-right:24px; }
-    .speakers-grid{ grid-template-columns:1fr; }
-    .speaker-card{ border-right:none; }
-    .speaker-card:last-child{ border-bottom:none; }
-  }
-  @media(prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
-  a:focus-visible,.pill:focus-visible{ outline:2px solid var(--ice); outline-offset:3px; }
+/* ─── RESPONSIVE ────────────────────────── */
+@media(max-width:900px){
+  nav{padding:24px 24px 0;}
+  .hero-content,.building-content{padding:50px 24px 60px;}
+  section{padding:80px 24px;}
+  .que-es-grid,.hack-wrap,.spk-grid{grid-template-columns:1fr;}
+  .speakers-header-wrap{grid-template-columns:1fr;min-height:auto;padding:40px 24px;gap:32px;}
+  .speakers-title{font-size:clamp(2.2rem,8vw,3.8rem);}
+  .speakers-window{width:260px;height:320px;}
+  .speakers-fids-top{padding:28px 24px 0;}
+  .building-fids-wrap,.building-brand{right:24px;}
+  .building-title{font-size:clamp(3rem,12vw,6rem);letter-spacing:-1px;}
+  .btn-registro,.btn-building{font-size:1rem;padding:16px 28px;}
+  .sobre-grid{grid-template-columns:1fr;gap:40px;padding:40px 24px 0;}
+  .sobre-stats{grid-template-columns:repeat(2,1fr);padding:36px 24px 48px;}
+  #agenda{padding:60px 24px;}
+  .agenda-row{grid-template-columns:1fr;gap:4px;}
+  .agenda-loc{text-align:left;}
+  .spk-card{min-height:220px;}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+a:focus-visible,.pill:focus-visible,.agenda-tab:focus-visible{outline:2px solid var(--ice);outline-offset:3px;}
 </style>
 </head>
 <body>
 
-<!-- =================== HERO =================== -->
+<!-- ═══════════ HERO ═══════════ -->
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <nav>
     <div class="logo"><span class="dot"></span>SKY.AI</div>
     <div class="nav-links">
-      <a href="#que-es" class="pill">Qué es Sky AI</a>
+      <a href="#sobre" class="pill">Qué es Sky AI</a>
       <a href="#speakers" class="pill">Speakers</a>
-      <a href="#hack" class="pill">Agenda</a>
+      <a href="#agenda" class="pill">Agenda</a>
       <a href="#inscripcion" class="pill cta-summit">Inscribirme al Summit</a>
       <a href="#hackathon-inscripcion" class="pill cta-hack">Inscribirme al Hackathon</a>
     </div>
@@ -410,69 +423,198 @@
     <div class="eyebrow">Un evento organizado por <span>KEY Institute</span> y <span>Aerojet</span></div>
     <h1>El primer <b>Summit y Hackathon</b> de aviación + AI de la región.</h1>
     <div class="hero-meta">
-      <div class="meta-item">
-        <span class="meta-label">Lugar</span>
-        <span class="meta-value">KEY Institute + Auditorio FEPADE</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Summit</span>
-        <span class="meta-value">Sábado 23 de enero · 8:00 AM – 7:00 PM</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Hackathon</span>
-        <span class="meta-value">23 ene 9:00 AM → 24 ene 2:00 PM</span>
-      </div>
+      <div class="meta-item"><span class="meta-label">Lugar</span><span class="meta-value">KEY Institute + Auditorio FEPADE</span></div>
+      <div class="meta-item"><span class="meta-label">Summit</span><span class="meta-value">Sábado 23 de enero · 8:00 AM – 7:00 PM</span></div>
+      <div class="meta-item"><span class="meta-label">Hackathon</span><span class="meta-value">23 ene 9:00 AM → 24 ene 2:00 PM</span></div>
     </div>
   </div>
   <div class="hero-bottom-line"></div>
 </section>
 
-<!-- =================== REGISTRO =================== -->
-<section id="registro">
-  <div class="registro-bg"></div>
-  <div class="registro-overlay"></div>
-  <div class="registro-buttons">
-    <a href="#inscripcion" class="btn-registro">Registrarme al <b>summit</b></a>
-    <a href="#hackathon-inscripcion" class="btn-registro">Registrarme al <b>hackathon</b></a>
-  </div>
-  <div class="registro-wordmark"><span>SKY.AI</span></div>
-</section>
 
-<!-- =================== BUILDING WHATS NEXT =================== -->
-<section id="building">
-  <div class="building-bg"></div>
-  <div class="building-overlay"></div>
-
-  <!-- FIDS board — top right -->
-  <div class="building-fids-wrap">
-    <div class="fids-board" id="fids-building">
-      <div class="fids-row">
-        <span class="fids-time">11:16</span>
-        <span class="fids-dest">COSTA RICA</span>
-        <span class="fids-flight">D7310</span>
-        <span class="fids-gate">E06</span>
-        <span class="fids-status on-time">ON TIME</span>
-        <span class="fids-blip">■</span>
+<!-- ═══════════ SOBRE EL EVENTO ═══════════ -->
+<section id="sobre">
+  <div class="sobre-wordmark"><span>SKY.AI</span></div>
+  <div class="sobre-grid">
+    <div>
+      <div class="sobre-label">Sobre el evento</div>
+      <h2 class="sobre-heading">Donde la aviación<br>comercial aterriza<br>en el futuro</h2>
+      <div class="sobre-copy">
+        <p>KEY Institute y Aerojet crean el primer espacio en Latinoamérica donde los tomadores de decisiones de la aviación comercial se reúnen para explorar, debatir y co-crear con inteligencia artificial.</p>
+        <p>Contenido de clase mundial, speakers CEO-level de las empresas líderes globales, y un hackathon de 29 horas que reta a los mejores talentos de la región.</p>
       </div>
-      <div class="fids-row">
-        <span class="fids-time">11:16</span>
-        <span class="fids-dest">EL SALVADOR</span>
-        <span class="fids-flight">D7310</span>
-        <span class="fids-gate">E06</span>
-        <span class="fids-status on-time">ON TIME</span>
-        <span class="fids-blip">■</span>
+    </div>
+    <div>
+      <div class="sobre-venue">Key Institute + Auditorio Fepade<br>El Salvador</div>
+      <p class="sobre-venue-copy">El Salvador — Dos venues icónicos para una experiencia de summit completa: keynotes magistrales, networking, talleres de hackathon y cena VIP en el Centro Histórico.</p>
+      <div class="sobre-info-boxes">
+        <div class="sobre-info-box">Summit/ Sáb 23 ene — 8:00 AM</div>
+        <div class="sobre-info-box">Hack inicio/ Sáb 23 ene — 9:00 AM</div>
+        <div class="sobre-info-box">Cierre Hack/ Dom 24 ene — 5:00 PM</div>
       </div>
     </div>
   </div>
+  <div class="sobre-stats">
+    <div class="stat-card dark"><span class="stat-num">12</span><span class="stat-lbl">Speakers</span></div>
+    <div class="stat-card v1"><span class="stat-num">29H</span><span class="stat-lbl">Hack</span></div>
+    <div class="stat-card v2"><span class="stat-num">2</span><span class="stat-lbl">Sedes</span></div>
+    <div class="stat-card v3"><span class="stat-num">15</span><span class="stat-lbl">Sponsors</span></div>
+  </div>
+</section>
 
-  <!-- SKY.AI brand -->
+
+<!-- ═══════════ SPEAKERS (ventana + FIDS) ═══════════ -->
+<section id="speakers">
+  <div class="speakers-fids-top">
+    <div class="fids-board" id="fids-spk-top">
+      <div class="fids-row"><span class="fids-time">10:03</span><span class="fids-dest">DUBAI</span><span class="fids-flight">A296OC05</span><span class="fids-status boarding">BOARDING</span><span class="fids-blip">■</span></div>
+      <div class="fids-row"><span class="fids-time">10:09</span><span class="fids-dest">SHANGHAI</span><span class="fids-flight">B033AD14</span><span class="fids-status delayed">DELAYED</span><span class="fids-blip">■</span></div>
+      <div class="fids-row"><span class="fids-time">10:14</span><span class="fids-dest">DHAKA</span><span class="fids-flight">B970OF20</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+    </div>
+  </div>
+  <div class="speakers-header-wrap">
+    <div class="speakers-title-block">
+      <h2 class="speakers-title">Speakers:<br>Influencers en<br>mundo de la<br>aviación</h2>
+    </div>
+    <div class="speakers-window"></div>
+  </div>
+  <div class="speakers-fids-top" style="padding-top:0;padding-bottom:40px;">
+    <div class="fids-board" id="fids-spk-bot">
+      <div class="fids-row"><span class="fids-time">11:16</span><span class="fids-dest">COSTA RICA</span><span class="fids-flight">D7310</span><span class="fids-gate">E06</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+      <div class="fids-row"><span class="fids-time">11:16</span><span class="fids-dest">EL SALVADOR</span><span class="fids-flight">D7310</span><span class="fids-gate">E06</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ SPEAKER CARD GRID ═══════════ -->
+<section id="speaker-grid">
+  <div class="spk-grid">
+
+    <div class="spk-card">
+      <!-- Foto: reemplaza var(--sp1) en :root con la URL real -->
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Roberto Kriete</div>
+        <div class="spk-role">President / CEO</div>
+        <div class="spk-company">MRO Holdings · AVIANCA</div>
+      </div>
+    </div>
+
+    <div class="spk-card">
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Nombre Speaker</div>
+        <div class="spk-role">Cargo / Título</div>
+        <div class="spk-company">Empresa · Organización</div>
+      </div>
+    </div>
+
+    <div class="spk-card">
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Nombre Speaker</div>
+        <div class="spk-role">Cargo / Título</div>
+        <div class="spk-company">Empresa · Organización</div>
+      </div>
+    </div>
+
+    <div class="spk-card">
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Nombre Speaker</div>
+        <div class="spk-role">Cargo / Título</div>
+        <div class="spk-company">Empresa · Organización</div>
+      </div>
+    </div>
+
+    <div class="spk-card">
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Nombre Speaker</div>
+        <div class="spk-role">Cargo / Título</div>
+        <div class="spk-company">Empresa · Organización</div>
+      </div>
+    </div>
+
+    <div class="spk-card">
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Nombre Speaker</div>
+        <div class="spk-role">Cargo / Título</div>
+        <div class="spk-company">Empresa · Organización</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════ AGENDA DEL DÍA ═══════════ -->
+<section id="agenda">
+  <div class="agenda-header">
+    <div class="agenda-pre">Plan de Vuelo</div>
+    <h2 class="agenda-title">Agenda del día</h2>
+  </div>
+  <div class="agenda-tabs">
+    <button class="agenda-tab active" data-day="summit">Summit – Día 1</button>
+    <button class="agenda-tab" data-day="hack1">Hack – Day 1</button>
+    <button class="agenda-tab" data-day="hack2">Hack – Day 2</button>
+  </div>
+
+  <!-- Summit Día 1 -->
+  <div class="agenda-list active" id="day-summit">
+    <div class="agenda-row"><span class="agenda-act">Registro de asistentes</span><span class="agenda-time">7:30 – 8:15 AM</span><span class="agenda-loc">Welcome Center KEY / Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Ceremonia de apertura</span><span class="agenda-time">8:15 – 8:45 AM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Keynote: AI en la aviación comercial</span><span class="agenda-time">9:00 – 9:45 AM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Panel: Casos de uso de AI en operaciones</span><span class="agenda-time">10:00 – 10:45 AM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Coffee Break & Networking</span><span class="agenda-time">11:00 – 11:30 AM</span><span class="agenda-loc">Lobby KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Keynote: Futuro del despacho con AI</span><span class="agenda-time">11:30 AM – 12:15 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Almuerzo & Networking</span><span class="agenda-time">12:15 – 1:30 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Panel: AI en experiencia del pasajero</span><span class="agenda-time">1:30 – 2:15 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Keynote: Seguridad y AI en aviación</span><span class="agenda-time">2:30 – 3:15 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Mesa redonda: Regulación e IA</span><span class="agenda-time">3:15 – 4:00 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Coffee Break</span><span class="agenda-time">4:00 – 4:30 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Sesiones paralelas / Talleres</span><span class="agenda-time">4:30 – 6:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Clausura del Summit</span><span class="agenda-time">6:00 – 7:00 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+  </div>
+
+  <!-- Hack Day 1 -->
+  <div class="agenda-list" id="day-hack1">
+    <div class="agenda-row"><span class="agenda-act">Lanzamiento del Hackathon</span><span class="agenda-time">9:00 AM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Formación de equipos & Briefing</span><span class="agenda-time">9:30 – 11:00 AM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Inicio de construcción</span><span class="agenda-time">11:00 AM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Almuerzo para hackers</span><span class="agenda-time">1:00 – 2:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Check-in de mentores</span><span class="agenda-time">4:00 – 5:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Cena para hackers</span><span class="agenda-time">8:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Mid-hack check</span><span class="agenda-time">10:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+  </div>
+
+  <!-- Hack Day 2 -->
+  <div class="agenda-list" id="day-hack2">
+    <div class="agenda-row"><span class="agenda-act">Desayuno para hackers</span><span class="agenda-time">8:00 – 9:00 AM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Sesión final de mentores</span><span class="agenda-time">9:00 – 11:00 AM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Freeze — cierre de código</span><span class="agenda-time">12:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Presentaciones finales</span><span class="agenda-time">12:00 – 1:30 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Deliberación del jurado</span><span class="agenda-time">1:30 – 2:00 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Premiación & Clausura</span><span class="agenda-time">2:00 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+  </div>
+</section>
+
+
+<!-- ═══════════ BUILDING WHATS NEXT ═══════════ -->
+<section id="building">
+  <div class="building-bg"></div>
+  <div class="building-overlay"></div>
+  <div class="building-fids-wrap">
+    <div class="fids-board">
+      <div class="fids-row"><span class="fids-time">11:16</span><span class="fids-dest">COSTA RICA</span><span class="fids-flight">D7310</span><span class="fids-gate">E06</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+      <div class="fids-row"><span class="fids-time">11:16</span><span class="fids-dest">EL SALVADOR</span><span class="fids-flight">D7310</span><span class="fids-gate">E06</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+    </div>
+  </div>
   <div class="building-brand">SKY.AI</div>
-
   <div class="building-content">
-    <h2 class="building-title">
-      building whats<br>
-      <span>next</span>
-    </h2>
+    <h2 class="building-title">building whats<br><span>next</span></h2>
     <div class="building-ctas">
       <div class="building-ctas-row">
         <a href="#inscripcion" class="btn-building">Registrarme al <b>summit</b></a>
@@ -485,150 +627,8 @@
   </div>
 </section>
 
-<!-- =================== SPEAKERS =================== -->
-<section id="speakers">
 
-  <!-- FIDS ticker superior -->
-  <div class="speakers-fids-top">
-    <div class="fids-board" id="fids-speakers-top">
-      <div class="fids-row">
-        <span class="fids-time">10:03</span>
-        <span class="fids-dest">DUBAI</span>
-        <span class="fids-flight">A296OC05</span>
-        <span class="fids-status boarding">BOARDING</span>
-        <span class="fids-blip">■</span>
-      </div>
-      <div class="fids-row">
-        <span class="fids-time">10:09</span>
-        <span class="fids-dest">SHANGHAI</span>
-        <span class="fids-flight">B033AD14</span>
-        <span class="fids-status delayed">DELAYED</span>
-        <span class="fids-blip">■</span>
-      </div>
-      <div class="fids-row">
-        <span class="fids-time">10:14</span>
-        <span class="fids-dest">DHAKA</span>
-        <span class="fids-flight">B970OF20</span>
-        <span class="fids-status on-time">ON TIME</span>
-        <span class="fids-blip">■</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- header: title (left) + airplane window (right) -->
-  <div class="speakers-header-wrap">
-    <div class="speakers-title-block">
-      <h2 class="speakers-title">Speakers:<br>Influencers en<br>mundo de la<br>aviación</h2>
-    </div>
-    <!-- ventana oval del avión — imagen configurada en --bg-speakers -->
-    <div class="speakers-window"></div>
-  </div>
-
-  <!-- FIDS ticker inferior (encima del área de la ventana) -->
-  <div class="speakers-fids-top" style="padding-top:0; padding-bottom:40px;">
-    <div class="fids-board" id="fids-speakers-bot">
-      <div class="fids-row">
-        <span class="fids-time">11:16</span>
-        <span class="fids-dest">COSTA RICA</span>
-        <span class="fids-flight">D7310</span>
-        <span class="fids-gate">E06</span>
-        <span class="fids-status on-time">ON TIME</span>
-        <span class="fids-blip">■</span>
-      </div>
-      <div class="fids-row">
-        <span class="fids-time">11:16</span>
-        <span class="fids-dest">EL SALVADOR</span>
-        <span class="fids-flight">D7310</span>
-        <span class="fids-gate">E06</span>
-        <span class="fids-status on-time">ON TIME</span>
-        <span class="fids-blip">■</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Speaker cards -->
-  <div class="speakers-grid-wrap">
-    <div class="speakers-grid">
-
-      <!-- CARD 1 — estilo violeta (con foto) -->
-      <div class="speaker-card">
-        <div class="speaker-photo" style="background-image:url('https://skyaisummit.aeroaiops.com/speakers/speaker1.jpg')"></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Roberto Kriete</div>
-          <div class="speaker-role">President / CEO</div>
-          <div class="speaker-company">MRO Holdings · AVIANCA</div>
-        </div>
-      </div>
-
-      <!-- CARD 2 — estilo oscuro -->
-      <div class="speaker-card">
-        <div class="speaker-photo" style="background-image:url('https://skyaisummit.aeroaiops.com/speakers/speaker2.jpg')"></div>
-        <div class="speaker-info dark">
-          <div class="speaker-name">Nombre Speaker</div>
-          <div class="speaker-role">Cargo / Título</div>
-          <div class="speaker-company">Empresa · Organización</div>
-        </div>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="speaker-card">
-        <div class="speaker-photo" style="background-image:url('https://skyaisummit.aeroaiops.com/speakers/speaker3.jpg')"></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Nombre Speaker</div>
-          <div class="speaker-role">Cargo / Título</div>
-          <div class="speaker-company">Empresa · Organización</div>
-        </div>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="speaker-card">
-        <div class="speaker-photo" style="background-image:url('https://skyaisummit.aeroaiops.com/speakers/speaker4.jpg')"></div>
-        <div class="speaker-info dark">
-          <div class="speaker-name">Nombre Speaker</div>
-          <div class="speaker-role">Cargo / Título</div>
-          <div class="speaker-company">Empresa · Organización</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- =================== QUE ES =================== -->
-<section id="que-es">
-  <div class="que-es-grid">
-    <div>
-      <div class="section-label">Qué es Sky AI</div>
-      <h2>KEY y Aerojet crean el <i>primer summit de aviación + AI</i> de Latinoamérica.</h2>
-    </div>
-    <div class="que-es-copy">
-      <p>Un summit que reúne a los tomadores de decisiones de la aviación comercial en Latinoamérica, y ofrece contenido de clase mundial sobre aplicaciones de inteligencia artificial en la industria.</p>
-      <p>Dos días de conversación técnica, casos reales y construcción colaborativa entre operadores, aerolíneas y desarrolladores que están llevando la AI a tierra y a vuelo.</p>
-      <div class="organizers">
-        <span class="org-chip">KEY Institute</span>
-        <span class="org-chip">Aerojet</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =================== HACKATHON =================== -->
-<section id="hack">
-  <div class="hack-wrap">
-    <div>
-      <h2>AI for Aviation Hackathon</h2>
-      <p>48 horas de construcción enfocadas en resolver retos reales de operación, despacho y experiencia de pasajero con inteligencia artificial. Equipos multidisciplinarios, mentores de la industria y un cierre con jurado en vivo.</p>
-    </div>
-    <div class="timeline">
-      <div class="t-item"><div class="t-dot"></div><div class="t-text"><div class="t-day">Sábado 23 de enero · 8:00 AM</div><div class="t-desc">Apertura del Summit</div></div></div>
-      <div class="t-item"><div class="t-dot"></div><div class="t-text"><div class="t-day">Sábado 23 de enero · 9:00 AM</div><div class="t-desc">Inicio del Hackathon</div></div></div>
-      <div class="t-item"><div class="t-dot"></div><div class="t-text"><div class="t-day">Sábado 23 de enero · 7:00 PM</div><div class="t-desc">Cierre del Summit</div></div></div>
-      <div class="t-item"><div class="t-dot"></div><div class="t-text"><div class="t-day">Domingo 24 de enero · 2:00 PM</div><div class="t-desc">Cierre del Hackathon</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- =================== CIERRE =================== -->
+<!-- ═══════════ CIERRE ═══════════ -->
 <section id="cierre">
   <h2>Sé parte del primer encuentro de aviación e inteligencia artificial en la región.</h2>
   <div class="cta-row">
@@ -639,41 +639,44 @@
 
 <footer>SKY.AI Summit · KEY Institute &amp; Aerojet · El Salvador, 2027</footer>
 
-<!-- =================== FIDS SCRAMBLE JS =================== -->
+
 <script>
+/* ─ FIDS scramble ─ */
 (function(){
-  var CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ';
-  function scrambleEl(el,delay){
-    var orig=el.textContent;
+  var C='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ';
+  function sc(el,d){
+    var o=el.textContent;
     setTimeout(function(){
-      var i=0,max=Math.floor(Math.random()*7)+4;
+      var i=0,m=Math.floor(Math.random()*6)+4;
       var t=setInterval(function(){
-        el.textContent=orig.split('').map(function(c){
-          return c===' '?' ':CHARS[Math.floor(Math.random()*CHARS.length)];
-        }).join('');
-        if(++i>=max){clearInterval(t);el.textContent=orig;}
+        el.textContent=o.split('').map(function(c){return c===' '?' ':C[Math.floor(Math.random()*C.length)];}).join('');
+        if(++i>=m){clearInterval(t);el.textContent=o;}
       },55);
-    },delay);
+    },d);
   }
-  function initBoard(board,baseDelay){
-    board.querySelectorAll('.fids-dest,.fids-flight,.fids-gate,.fids-status,.fids-time').forEach(function(el,i){
-      scrambleEl(el,baseDelay+i*120);
+  function run(){
+    document.querySelectorAll('.fids-board').forEach(function(b,bi){
+      b.querySelectorAll('.fids-dest,.fids-flight,.fids-gate,.fids-status,.fids-time').forEach(function(el,i){
+        sc(el,bi*180+i*110);
+      });
     });
   }
-  function runAll(){
-    var b1=document.getElementById('fids-building');
-    var b2=document.getElementById('fids-speakers-top');
-    var b3=document.getElementById('fids-speakers-bot');
-    if(b1)initBoard(b1,200);
-    if(b2)initBoard(b2,400);
-    if(b3)initBoard(b3,600);
-  }
-  document.addEventListener('DOMContentLoaded',function(){
-    runAll();
-    /* re-scramble cada 8 segundos */
-    setInterval(runAll,8000);
-  });
+  document.addEventListener('DOMContentLoaded',function(){run();setInterval(run,8000);});
 })();
+
+/* ─ Agenda tabs ─ */
+document.addEventListener('DOMContentLoaded',function(){
+  var tabs=document.querySelectorAll('.agenda-tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      tabs.forEach(function(t){t.classList.remove('active');});
+      document.querySelectorAll('.agenda-list').forEach(function(l){l.classList.remove('active');});
+      tab.classList.add('active');
+      var day=document.getElementById('day-'+tab.dataset.day);
+      if(day) day.classList.add('active');
+    });
+  });
+});
 </script>
 </body>
 </html>
