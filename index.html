@@ -5,14 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SKY.AI Summit — AI for Aviation</title>
 
-<!-- ── SEO ── -->
 <meta name="description" content="El primer Summit de Aviación + AI en Latinoamérica. Speakers CEO-level de Boeing, Anthropic, Google DeepMind, Airbus, Embraer y más. Hackathon de 29 horas. El Salvador, 23–24 enero 2027.">
 <meta name="keywords" content="SKY AI Summit, aviación, inteligencia artificial, hackathon, El Salvador, KEY Institute, Aerojet, Latinoamérica, AI aviation, summit 2027">
 <meta name="author" content="KEY Institute + Aerojet">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://skyaisummit.aeroaiops.com/">
-
-<!-- ── Open Graph (Facebook, WhatsApp, LinkedIn, Slack…) ── -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://skyaisummit.com/">
 <meta property="og:title" content="SKY AI Summit 2027 — AI for Aviation Hackathon & Summit">
@@ -41,537 +38,364 @@
     --ink:#070512;
     --ink-soft:#15102b;
 
-    --bg-image-url: url('https://skyaisummit.aeroaiops.com/fondo3.png');
-    --bg-image-url-registro: url('https://skyaisummit.aeroaiops.com/fondo4.png');
+    /* ===== FONDOS — CAMBIA ESTAS URLs ===== */
+    --bg-hero:       url('https://skyaisummit.aeroaiops.com/fondo3.png');
+    --bg-registro:   url('https://skyaisummit.aeroaiops.com/fondo4.png');
+    --bg-building:   url('https://skyaisummit.aeroaiops.com/fondo5.png');   /* sección "building whats next" */
+    --bg-speakers:   url('https://skyaisummit.aeroaiops.com/fondo3.png');   /* sección Speakers — ventana avión */
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
+  body{ font-family:'Manrope',sans-serif; background:var(--ink); color:var(--ice); overflow-x:hidden; }
 
-  body{
-    font-family:'Manrope', sans-serif;
-    background:var(--ink);
-    color:var(--ice);
-    overflow-x:hidden;
-  }
-
+  /* ============ HERO ============ */
   .hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    overflow:hidden;
+    position:relative; min-height:100vh; display:flex; flex-direction:column; overflow:hidden;
     background:
       radial-gradient(ellipse 1200px 800px at 78% 38%, rgba(118,84,253,0.55), transparent 60%),
-      linear-gradient(115deg, #07050f 0%, #1c1140 28%, #4a2fd1 56%, #2a6ef5 80%, #2a6ef5 100%);
+      linear-gradient(115deg,#07050f 0%,#1c1140 28%,#4a2fd1 56%,#2a6ef5 80%,#2a6ef5 100%);
   }
-
   .hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image: var(--bg-image-url);
-    background-size:cover;
-    background-position:center;
-    pointer-events:none;
-    z-index:0;
+    content:""; position:absolute; inset:0;
+    background-image:var(--bg-hero); background-size:cover; background-position:center;
+    pointer-events:none; z-index:0;
   }
   .hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
+    content:""; position:absolute; inset:0;
     background:
       radial-gradient(ellipse 1200px 800px at 78% 38%, rgba(118,84,253,0.35), transparent 60%),
-      linear-gradient(115deg, rgba(7,5,15,0.85) 0%, rgba(28,17,64,0.55) 28%, rgba(74,47,209,0.3) 56%, rgba(42,110,245,0.15) 100%);
-    pointer-events:none;
-    z-index:1;
+      linear-gradient(115deg,rgba(7,5,15,0.85) 0%,rgba(28,17,64,0.55) 28%,rgba(74,47,209,0.3) 56%,rgba(42,110,245,0.15) 100%);
+    pointer-events:none; z-index:1;
   }
-  .hero-grid, .hero-glow{ z-index:2; }
-  nav, .hero-content{ z-index:10; }
+  .hero-grid,.hero-glow{z-index:2;}
+  nav,.hero-content{z-index:10;}
 
   .hero-grid{
-    position:absolute;
-    inset:0;
+    position:absolute; inset:0;
     background-image:
-      linear-gradient(rgba(180,183,217,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(180,183,217,0.06) 1px, transparent 1px);
+      linear-gradient(rgba(180,183,217,0.06) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(180,183,217,0.06) 1px,transparent 1px);
     background-size:64px 64px;
-    mask-image: linear-gradient(to bottom, black, transparent 75%);
+    mask-image:linear-gradient(to bottom,black,transparent 75%);
     pointer-events:none;
   }
-
   .hero-glow{
-    position:absolute;
-    width:900px;height:900px;
-    right:-220px; top:-260px;
-    background:radial-gradient(circle, rgba(42,110,245,0.45), transparent 65%);
-    filter:blur(10px);
-    pointer-events:none;
+    position:absolute; width:900px; height:900px; right:-220px; top:-260px;
+    background:radial-gradient(circle,rgba(42,110,245,0.45),transparent 65%);
+    filter:blur(10px); pointer-events:none;
   }
 
+  /* ===== NAVBAR ===== */
   nav{
-    position:relative;
-    z-index:20;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:34px 56px 0;
-    flex-wrap:wrap;
-    gap:18px;
+    position:relative; z-index:20; display:flex; align-items:center;
+    justify-content:space-between; padding:34px 56px 0; flex-wrap:wrap; gap:18px;
   }
-
   .logo{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:700;
-    font-size:1.7rem;
-    letter-spacing:0.5px;
-    color:var(--ice);
-    display:flex;
-    align-items:center;
-    gap:8px;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.7rem;
+    letter-spacing:0.5px; color:var(--ice); display:flex; align-items:center; gap:8px;
   }
   .logo .dot{
-    width:9px;height:9px;border-radius:50%;
-    background:linear-gradient(135deg, var(--blue), var(--violet));
+    width:9px; height:9px; border-radius:50%;
+    background:linear-gradient(135deg,var(--blue),var(--violet));
     box-shadow:0 0 12px var(--blue);
   }
-
-  .nav-links{
-    display:flex;
-    gap:12px;
-    align-items:center;
-    flex-wrap:wrap;
-  }
-
+  .nav-links{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
   .pill{
-    font-family:'Manrope', sans-serif;
-    font-size:0.92rem;
-    font-weight:600;
-    color:var(--ice);
-    text-decoration:none;
-    padding:13px 26px;
-    border-radius:999px;
-    background:rgba(7,5,18,0.55);
-    border:1px solid rgba(180,183,217,0.18);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-    white-space:nowrap;
-    transition:all .25s ease;
+    font-family:'Manrope',sans-serif; font-size:0.92rem; font-weight:600; color:var(--ice);
+    text-decoration:none; padding:13px 26px; border-radius:999px;
+    background:rgba(7,5,18,0.55); border:1px solid rgba(180,183,217,0.18);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    white-space:nowrap; transition:all .25s ease;
   }
-  .pill:hover{
-    background:rgba(180,183,217,0.12);
-    border-color:rgba(252,252,253,0.4);
-    transform:translateY(-1px);
-  }
-  .pill.cta-summit{
-    background:var(--blue);
-    border-color:var(--blue);
-    box-shadow:0 0 0 0 rgba(42,110,245,0.5);
-  }
-  .pill.cta-summit:hover{
-    background:#1c5be0;
-    box-shadow:0 6px 24px rgba(42,110,245,0.55);
-  }
-  .pill.cta-hack{
-    background:var(--violet);
-    border-color:var(--violet);
-  }
-  .pill.cta-hack:hover{
-    background:#5f3ff0;
-    box-shadow:0 6px 24px rgba(118,84,253,0.55);
-  }
+  .pill:hover{ background:rgba(180,183,217,0.12); border-color:rgba(252,252,253,0.4); transform:translateY(-1px); }
+  .pill.cta-summit{ background:var(--blue); border-color:var(--blue); }
+  .pill.cta-summit:hover{ background:#1c5be0; box-shadow:0 6px 24px rgba(42,110,245,0.55); }
+  .pill.cta-hack{ background:var(--violet); border-color:var(--violet); }
+  .pill.cta-hack:hover{ background:#5f3ff0; box-shadow:0 6px 24px rgba(118,84,253,0.55); }
 
+  /* ===== HERO CONTENT ===== */
   .hero-content{
-    position:relative;
-    z-index:10;
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    padding:60px 56px 90px;
-    max-width:1180px;
+    position:relative; z-index:10; flex:1; display:flex; flex-direction:column;
+    justify-content:center; padding:60px 56px 90px; max-width:1180px;
   }
-
-  .eyebrow{
-    font-size:0.95rem;
-    font-weight:600;
-    color:var(--gray-blue);
-    letter-spacing:0.5px;
-    margin-bottom:18px;
-  }
+  .eyebrow{ font-size:0.95rem; font-weight:600; color:var(--gray-blue); letter-spacing:0.5px; margin-bottom:18px; }
   .eyebrow span{ color:var(--ice); font-weight:700; }
-
   h1{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:500;
-    font-size:clamp(2.4rem, 5.6vw, 5.2rem);
-    line-height:1.04;
-    letter-spacing:-1px;
-    color:var(--ice);
-    max-width:920px;
+    font-family:'Space Grotesk',sans-serif; font-weight:500;
+    font-size:clamp(2.4rem,5.6vw,5.2rem); line-height:1.04; letter-spacing:-1px;
+    color:var(--ice); max-width:920px;
   }
   h1 b{
     font-weight:700;
-    background:linear-gradient(100deg, var(--ice) 0%, #cfd6ff 35%, var(--gray-blue) 100%);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    background:linear-gradient(100deg,var(--ice) 0%,#cfd6ff 35%,var(--gray-blue) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-
-  .hero-meta{
-    margin-top:42px;
-    display:flex;
-    gap:38px;
-    flex-wrap:wrap;
-  }
-  .meta-item{
-    display:flex;
-    flex-direction:column;
-    gap:4px;
-  }
-  .meta-label{
-    font-size:0.72rem;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    color:var(--gray-blue);
-    font-weight:700;
-  }
-  .meta-value{
-    font-size:1.02rem;
-    font-weight:600;
-    color:var(--ice);
-  }
-
+  .hero-meta{ margin-top:42px; display:flex; gap:38px; flex-wrap:wrap; }
+  .meta-item{ display:flex; flex-direction:column; gap:4px; }
+  .meta-label{ font-size:0.72rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--gray-blue); font-weight:700; }
+  .meta-value{ font-size:1.02rem; font-weight:600; color:var(--ice); }
   .hero-bottom-line{
-    position:absolute;
-    bottom:0; left:0; right:0;
-    height:1px;
-    background:linear-gradient(90deg, transparent, rgba(180,183,217,0.35), transparent);
+    position:absolute; bottom:0; left:0; right:0; height:1px;
+    background:linear-gradient(90deg,transparent,rgba(180,183,217,0.35),transparent);
   }
 
   /* ============ SECTION: REGISTRO ============ */
   #registro{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    background:var(--ink);
-    padding:0;
+    position:relative; min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; overflow:hidden; background:var(--ink); padding:0;
   }
   #registro .registro-bg{
-    position:absolute;
-    inset:0;
-    background-image: var(--bg-image-url-registro);
-    background-size:cover;
-    background-position:center;
-    z-index:0;
+    position:absolute; inset:0; background-image:var(--bg-registro);
+    background-size:cover; background-position:center; z-index:0;
   }
   #registro .registro-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg, rgba(7,5,18,0.15) 0%, rgba(7,5,18,0.05) 45%, rgba(7,5,18,0.55) 75%, var(--ink) 100%);
+    position:absolute; inset:0;
+    background:linear-gradient(180deg,rgba(7,5,18,0.15) 0%,rgba(7,5,18,0.05) 45%,rgba(7,5,18,0.55) 75%,var(--ink) 100%);
+    z-index:1;
+  }
+  .registro-buttons{
+    position:relative; z-index:5; display:flex; gap:24px; flex-wrap:wrap;
+    justify-content:center; padding:0 24px; margin-top:18vh; margin-bottom:auto;
+  }
+  .btn-registro{
+    font-family:'Manrope',sans-serif; font-size:1.55rem; font-weight:500; color:var(--ice);
+    text-decoration:none; padding:26px 56px; border-radius:999px;
+    background:rgba(118,84,253,0.65); border:1px solid rgba(252,252,253,0.25);
+    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    box-shadow:0 8px 32px rgba(7,5,18,0.35); transition:all .25s ease; white-space:nowrap;
+  }
+  .btn-registro b{ font-weight:700; }
+  .btn-registro:hover{ background:rgba(118,84,253,0.85); transform:translateY(-2px); box-shadow:0 12px 40px rgba(118,84,253,0.45); }
+  .registro-wordmark{
+    position:relative; z-index:4; width:100%; text-align:center;
+    line-height:0.82; margin-top:6vh; padding-bottom:2vh; pointer-events:none; user-select:none;
+  }
+  .registro-wordmark span{
+    font-family:'Open Sauce One','Space Grotesk',sans-serif; font-weight:700;
+    font-size:min(28vw,50rem); color:rgba(118,84,253,0.65); letter-spacing:-0.02em;
+  }
+
+  /* ============ SECTION: BUILDING WHATS NEXT ============ */
+  #building{
+    position:relative; min-height:100vh; display:flex; flex-direction:column; overflow:hidden;
+  }
+  #building .building-bg{
+    position:absolute; inset:0; background-image:var(--bg-building);
+    background-size:cover; background-position:center; z-index:0;
+  }
+  /* overlay suave para contraste del texto */
+  #building .building-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(135deg,rgba(7,5,18,0.45) 0%,rgba(7,5,18,0.1) 50%,rgba(7,5,18,0.05) 100%);
     z-index:1;
   }
 
-  .registro-buttons{
-    position:relative;
-    z-index:5;
-    display:flex;
-    gap:24px;
-    flex-wrap:wrap;
-    justify-content:center;
-    padding:0 24px;
-    margin-top:18vh;
-    margin-bottom:auto;
+  /* --- FIDS board (marcador de vuelos) --- */
+  .fids-board{
+    position:relative; z-index:5;
+    font-family:'Courier New',Courier,monospace; font-weight:bold;
+    font-size:0.95rem; letter-spacing:0.1em; line-height:2;
+    background:rgba(0,0,0,0.72); border:1px solid rgba(255,255,255,0.08);
+    padding:12px 20px; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  }
+  .fids-row{ display:flex; align-items:center; gap:16px; white-space:nowrap; }
+  .fids-time{ color:var(--ice); min-width:48px; }
+  .fids-dest{ color:#F5C518; min-width:120px; }
+  .fids-flight{ color:var(--ice); min-width:60px; }
+  .fids-gate{ color:var(--ice); min-width:38px; }
+  .fids-status{ font-weight:bold; }
+  .fids-status.on-time{ color:#4ade80; }
+  .fids-status.boarding{ color:#60a5fa; }
+  .fids-status.delayed{ color:#f87171; }
+  .fids-blip{ color:#555; animation:blink 0.9s step-end infinite; }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+  .building-fids-wrap{
+    position:relative; z-index:5; display:flex; justify-content:flex-end; padding:32px 52px 0;
   }
 
-  .btn-registro{
-    font-family:'Manrope', sans-serif;
-    font-size:1.55rem;
-    font-weight:500;
-    color:var(--ice);
-    text-decoration:none;
-    padding:26px 56px;
-    border-radius:999px;
-    background:rgba(118,84,253,0.65);
-    border:1px solid rgba(252,252,253,0.25);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    box-shadow:0 8px 32px rgba(7,5,18,0.35);
-    transition:all .25s ease;
-    white-space:nowrap;
-  }
-  .btn-registro b{ font-weight:700; }
-  .btn-registro:hover{
-    background:rgba(118,84,253,0.85);
-    transform:translateY(-2px);
-    box-shadow:0 12px 40px rgba(118,84,253,0.45);
+  /* --- SKY.AI brand top-right --- */
+  .building-brand{
+    position:absolute; top:36px; right:54px; z-index:6;
+    font-family:'Space Grotesk',sans-serif; font-weight:700;
+    font-size:1.45rem; letter-spacing:0.5px; color:var(--ice);
   }
 
-  .registro-wordmark{
-    position:relative;
-    z-index:4;
-    width:100%;
-    text-align:center;
-    line-height:0.82;
-    margin-top:6vh;
-    padding-bottom:2vh;
-    pointer-events:none;
-    user-select:none;
+  /* --- "building whats next" title --- */
+  .building-content{
+    position:relative; z-index:5; flex:1; display:flex; flex-direction:column;
+    justify-content:flex-end; padding:0 56px 70px;
   }
-  .registro-wordmark span{
-    font-family:'Open Sauce One', 'Space Grotesk', sans-serif;
-    font-weight:700;
-    font-size:min(28vw, 50rem);
-    color:rgba(118,84,253,0.65);
-    letter-spacing:-0.02em;
+  .building-title{
+    font-family:'Space Grotesk',sans-serif; font-weight:700;
+    font-size:clamp(4.5rem,9vw,11rem); line-height:0.95; letter-spacing:-2px;
+    color:var(--ice); margin-bottom:56px; max-width:1100px;
+  }
+  .building-title span{ display:block; }
+
+  /* --- 3 botones de registro --- */
+  .building-ctas{ display:flex; flex-direction:column; align-items:center; gap:18px; }
+  .building-ctas-row{ display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+  .btn-building{
+    font-family:'Manrope',sans-serif; font-size:1.2rem; font-weight:500; color:var(--ice);
+    text-decoration:none; padding:20px 48px; border-radius:999px;
+    background:rgba(118,84,253,0.65); border:1px solid rgba(252,252,253,0.22);
+    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    box-shadow:0 6px 28px rgba(7,5,18,0.4); transition:all .25s ease; white-space:nowrap;
+  }
+  .btn-building b{ font-weight:800; }
+  .btn-building:hover{ background:rgba(118,84,253,0.88); transform:translateY(-2px); box-shadow:0 10px 36px rgba(118,84,253,0.5); }
+  .btn-building.btn-sponsor{
+    background:rgba(7,5,18,0.5); border-color:rgba(252,252,253,0.3); font-size:1.05rem;
+  }
+  .btn-building.btn-sponsor:hover{ background:rgba(252,252,253,0.12); border-color:rgba(252,252,253,0.6); }
+
+  /* ============ SECTION: SPEAKERS ============ */
+  #speakers{
+    position:relative; background:var(--ink); padding:0; overflow:hidden;
   }
 
-  /* ============ SECTION: QUE ES ============ */
-  section{
-    padding:120px 56px;
-    position:relative;
+  /* ticker FIDS superior */
+  .speakers-fids-top{
+    position:relative; z-index:5; padding:0 52px; padding-top:52px;
+    display:flex; flex-direction:column; gap:0;
   }
 
-  .section-label{
-    font-size:0.78rem;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:var(--violet);
-    margin-bottom:18px;
+  /* cabecera con ventana de avión */
+  .speakers-header-wrap{
+    position:relative; z-index:4; display:grid;
+    grid-template-columns:1fr 1fr; align-items:center;
+    min-height:65vh; padding:0 52px;
   }
 
-  #que-es{
-    background:var(--ice);
-    color:var(--ink);
-  }
-  #que-es .section-label{ color:var(--blue); }
-
-  .que-es-grid{
-    display:grid;
-    grid-template-columns:1.1fr 1fr;
-    gap:64px;
-    align-items:start;
-    max-width:1280px;
-    margin:0 auto;
+  .speakers-title-block{ position:relative; z-index:6; }
+  .speakers-title{
+    font-family:'Space Grotesk',sans-serif; font-weight:700;
+    font-size:clamp(2.8rem,5.5vw,6.2rem); line-height:1.0; letter-spacing:-1.5px; color:var(--ice);
   }
 
-  .que-es-grid h2{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:600;
-    font-size:clamp(1.9rem, 3.4vw, 2.9rem);
-    line-height:1.18;
-    letter-spacing:-0.5px;
-    color:var(--ink);
-  }
-  .que-es-grid h2 i{
-    font-style:normal;
-    color:var(--blue);
-  }
-
-  .que-es-copy p{
-    font-size:1.08rem;
-    line-height:1.7;
-    color:#3b3b4d;
-    margin-bottom:20px;
-  }
-
-  .organizers{
-    display:flex;
-    gap:14px;
-    margin-top:30px;
-    flex-wrap:wrap;
-  }
-  .org-chip{
-    font-size:0.85rem;
-    font-weight:700;
-    padding:10px 20px;
-    border-radius:999px;
-    border:1.5px solid #1f1840;
-    color:#1f1840;
-  }
-
-  .info-card{
-    background:var(--ink);
-    border-radius:22px;
-    padding:38px;
-    color:var(--ice);
-    position:relative;
+  /* ventana oval de avión */
+  .speakers-window{
+    position:relative; z-index:5; justify-self:center;
+    width:clamp(300px,38vw,560px); height:clamp(380px,48vw,700px);
+    border-radius:50%/42%;
+    background-image:var(--bg-speakers);
+    background-size:cover; background-position:center;
+    box-shadow:0 0 80px rgba(0,0,0,0.8), 0 0 0 3px rgba(180,183,217,0.12);
     overflow:hidden;
   }
-  .info-card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:radial-gradient(circle at 85% 0%, rgba(118,84,253,0.45), transparent 60%);
-    pointer-events:none;
+  .speakers-window::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg,rgba(7,5,18,0.05) 0%,rgba(7,5,18,0.2) 100%);
   }
-  .info-row{
-    position:relative;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:20px;
-    padding:20px 0;
-    border-bottom:1px solid rgba(180,183,217,0.18);
+
+  /* fids mid overlapping window */
+  .speakers-fids-mid{
+    position:absolute; bottom:0; left:0; right:0; z-index:7;
+    padding:0 52px 28px;
   }
-  .info-row:last-child{ border-bottom:none; }
-  .info-key{
-    font-size:0.74rem;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    color:var(--gray-blue);
-    font-weight:700;
+
+  /* cards grid */
+  .speakers-grid-wrap{ padding:56px 52px 80px; }
+  .speakers-grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:0; border-top:1px solid rgba(180,183,217,0.14);
   }
-  .info-val{
-    font-size:1.02rem;
-    font-weight:600;
-    text-align:right;
-    max-width:60%;
+  .speaker-card{
+    display:flex; align-items:stretch; border-right:1px solid rgba(180,183,217,0.14);
+    border-bottom:1px solid rgba(180,183,217,0.14);
+    overflow:hidden; min-height:220px;
   }
+  .speaker-card:last-child{ border-right:none; }
+
+  .speaker-photo{
+    width:160px; flex-shrink:0; background:#1a1a2e;
+    background-size:cover; background-position:center top;
+  }
+  /* Asigna fotos: .speaker-card:nth-child(N) .speaker-photo { background-image: url('...'); } */
+
+  .speaker-info{
+    flex:1; padding:28px 26px; display:flex; flex-direction:column; justify-content:center;
+    background:rgba(118,84,253,0.18);
+    border-left:3px solid var(--violet);
+  }
+  .speaker-info.dark{
+    background:rgba(15,12,32,0.9); border-left-color:rgba(180,183,217,0.2);
+  }
+  .speaker-name{
+    font-family:'Space Grotesk',sans-serif; font-weight:700;
+    font-size:1.35rem; color:var(--ice); line-height:1.2; margin-bottom:6px;
+  }
+  .speaker-role{ font-size:0.92rem; font-weight:600; color:var(--ice); margin-bottom:10px; }
+  .speaker-company{ font-size:0.8rem; color:var(--gray-blue); letter-spacing:0.3px; }
+
+  /* ============ SECTION: QUE ES ============ */
+  section{ padding:120px 56px; position:relative; }
+  .section-label{ font-size:0.78rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--violet); margin-bottom:18px; }
+  #que-es{ background:var(--ice); color:var(--ink); }
+  #que-es .section-label{ color:var(--blue); }
+  .que-es-grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:64px; align-items:start; max-width:1280px; margin:0 auto; }
+  .que-es-grid h2{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(1.9rem,3.4vw,2.9rem); line-height:1.18; letter-spacing:-0.5px; color:var(--ink); }
+  .que-es-grid h2 i{ font-style:normal; color:var(--blue); }
+  .que-es-copy p{ font-size:1.08rem; line-height:1.7; color:#3b3b4d; margin-bottom:20px; }
+  .organizers{ display:flex; gap:14px; margin-top:30px; flex-wrap:wrap; }
+  .org-chip{ font-size:0.85rem; font-weight:700; padding:10px 20px; border-radius:999px; border:1.5px solid #1f1840; color:#1f1840; }
 
   /* ============ HACKATHON STRIP ============ */
-  #hack{
-    background:linear-gradient(120deg, #0c0820 0%, #221356 55%, #2a6ef5 130%);
-    padding:90px 56px;
-  }
-  .hack-wrap{
-    max-width:1280px;
-    margin:0 auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-  }
-  .hack-wrap h2{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:600;
-    font-size:clamp(1.8rem,3vw,2.6rem);
-    line-height:1.2;
-    color:var(--ice);
-    margin-bottom:20px;
-  }
-  .hack-wrap p{
-    color:var(--gray-blue);
-    font-size:1.05rem;
-    line-height:1.7;
-  }
-  .timeline{
-    display:flex;
-    flex-direction:column;
-    gap:0;
-  }
-  .t-item{
-    display:flex;
-    gap:22px;
-    padding:22px 0;
-    border-bottom:1px solid rgba(180,183,217,0.18);
-  }
-  .t-item:last-child{border-bottom:none;}
-  .t-dot{
-    width:11px;height:11px;border-radius:50%;
-    margin-top:6px;
-    background:var(--ice);
-    flex-shrink:0;
-    box-shadow:0 0 10px rgba(252,252,253,0.6);
-  }
-  .t-text .t-day{
-    font-weight:700;
-    font-size:0.78rem;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:var(--gray-blue);
-    margin-bottom:4px;
-  }
-  .t-text .t-desc{
-    font-size:1.05rem;
-    font-weight:600;
-    color:var(--ice);
-  }
+  #hack{ background:linear-gradient(120deg,#0c0820 0%,#221356 55%,#2a6ef5 130%); padding:90px 56px; }
+  .hack-wrap{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+  .hack-wrap h2{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(1.8rem,3vw,2.6rem); line-height:1.2; color:var(--ice); margin-bottom:20px; }
+  .hack-wrap p{ color:var(--gray-blue); font-size:1.05rem; line-height:1.7; }
+  .timeline{ display:flex; flex-direction:column; }
+  .t-item{ display:flex; gap:22px; padding:22px 0; border-bottom:1px solid rgba(180,183,217,0.18); }
+  .t-item:last-child{ border-bottom:none; }
+  .t-dot{ width:11px; height:11px; border-radius:50%; margin-top:6px; background:var(--ice); flex-shrink:0; box-shadow:0 0 10px rgba(252,252,253,0.6); }
+  .t-text .t-day{ font-weight:700; font-size:0.78rem; letter-spacing:1px; text-transform:uppercase; color:var(--gray-blue); margin-bottom:4px; }
+  .t-text .t-desc{ font-size:1.05rem; font-weight:600; color:var(--ice); }
 
   /* ============ FOOTER CTA ============ */
-  #cierre{
-    background:var(--ice);
-    color:var(--ink);
-    text-align:center;
-    padding:120px 24px 80px;
-  }
-  #cierre h2{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:600;
-    font-size:clamp(2rem,4vw,3.4rem);
-    letter-spacing:-1px;
-    max-width:780px;
-    margin:0 auto 36px;
-    line-height:1.15;
-  }
-  .cta-row{
-    display:flex;
-    justify-content:center;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  .btn-dark{
-    background:var(--ink);
-    color:var(--ice);
-    padding:16px 34px;
-    border-radius:999px;
-    font-weight:700;
-    text-decoration:none;
-    font-size:0.95rem;
-    transition:all .25s ease;
-  }
+  #cierre{ background:var(--ice); color:var(--ink); text-align:center; padding:120px 24px 80px; }
+  #cierre h2{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(2rem,4vw,3.4rem); letter-spacing:-1px; max-width:780px; margin:0 auto 36px; line-height:1.15; }
+  .cta-row{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .btn-dark{ background:var(--ink); color:var(--ice); padding:16px 34px; border-radius:999px; font-weight:700; text-decoration:none; font-size:0.95rem; transition:all .25s ease; }
   .btn-dark:hover{ transform:translateY(-2px); box-shadow:0 10px 30px rgba(0,0,0,0.2); }
-  .btn-outline{
-    border:1.5px solid var(--ink);
-    color:var(--ink);
-    padding:16px 34px;
-    border-radius:999px;
-    font-weight:700;
-    text-decoration:none;
-    font-size:0.95rem;
-    transition:all .25s ease;
-  }
+  .btn-outline{ border:1.5px solid var(--ink); color:var(--ink); padding:16px 34px; border-radius:999px; font-weight:700; text-decoration:none; font-size:0.95rem; transition:all .25s ease; }
   .btn-outline:hover{ background:var(--ink); color:var(--ice); }
 
-  footer{
-    background:var(--ink);
-    color:var(--gray-blue);
-    text-align:center;
-    padding:30px;
-    font-size:0.85rem;
-  }
+  footer{ background:var(--ink); color:var(--gray-blue); text-align:center; padding:30px; font-size:0.85rem; }
 
-  @media (max-width: 880px){
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:880px){
     nav{ padding:24px 24px 0; }
     .hero-content{ padding:50px 24px 70px; }
     section{ padding:80px 24px; }
-    .que-es-grid, .hack-wrap{ grid-template-columns:1fr; }
-    .info-val{ text-align:left; max-width:100%; }
+    .que-es-grid,.hack-wrap{ grid-template-columns:1fr; }
     .btn-registro{ font-size:1.1rem; padding:18px 32px; }
     .registro-buttons{ margin-top:14vh; gap:14px; }
+    .building-content{ padding:0 24px 60px; }
+    .building-fids-wrap{ padding:24px 24px 0; }
+    .building-brand{ right:24px; }
+    .building-title{ font-size:clamp(3.2rem,12vw,6rem); letter-spacing:-1px; }
+    .btn-building{ font-size:1rem; padding:16px 32px; }
+    .speakers-header-wrap{ grid-template-columns:1fr; min-height:auto; padding:40px 24px; gap:40px; }
+    .speakers-title{ font-size:clamp(2.2rem,8vw,3.8rem); }
+    .speakers-window{ width:280px; height:340px; justify-self:start; }
+    .speakers-fids-top,.speakers-grid-wrap{ padding-left:24px; padding-right:24px; }
+    .speakers-grid{ grid-template-columns:1fr; }
+    .speaker-card{ border-right:none; }
+    .speaker-card:last-child{ border-bottom:none; }
   }
-
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-  }
-
-  a:focus-visible, .pill:focus-visible{
-    outline:2px solid var(--ice);
-    outline-offset:3px;
-  }
+  @media(prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+  a:focus-visible,.pill:focus-visible{ outline:2px solid var(--ice); outline-offset:3px; }
 </style>
 </head>
 <body>
 
+<!-- =================== HERO =================== -->
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
-
   <nav>
     <div class="logo"><span class="dot"></span>SKY.AI</div>
     <div class="nav-links">
@@ -582,11 +406,9 @@
       <a href="#hackathon-inscripcion" class="pill cta-hack">Inscribirme al Hackathon</a>
     </div>
   </nav>
-
   <div class="hero-content">
     <div class="eyebrow">Un evento organizado por <span>KEY Institute</span> y <span>Aerojet</span></div>
     <h1>El primer <b>Summit y Hackathon</b> de aviación + AI de la región.</h1>
-
     <div class="hero-meta">
       <div class="meta-item">
         <span class="meta-label">Lugar</span>
@@ -602,22 +424,177 @@
       </div>
     </div>
   </div>
-
   <div class="hero-bottom-line"></div>
 </section>
 
+<!-- =================== REGISTRO =================== -->
 <section id="registro">
   <div class="registro-bg"></div>
   <div class="registro-overlay"></div>
-
   <div class="registro-buttons">
     <a href="#inscripcion" class="btn-registro">Registrarme al <b>summit</b></a>
     <a href="#hackathon-inscripcion" class="btn-registro">Registrarme al <b>hackathon</b></a>
   </div>
-
   <div class="registro-wordmark"><span>SKY.AI</span></div>
 </section>
 
+<!-- =================== BUILDING WHATS NEXT =================== -->
+<section id="building">
+  <div class="building-bg"></div>
+  <div class="building-overlay"></div>
+
+  <!-- FIDS board — top right -->
+  <div class="building-fids-wrap">
+    <div class="fids-board" id="fids-building">
+      <div class="fids-row">
+        <span class="fids-time">11:16</span>
+        <span class="fids-dest">COSTA RICA</span>
+        <span class="fids-flight">D7310</span>
+        <span class="fids-gate">E06</span>
+        <span class="fids-status on-time">ON TIME</span>
+        <span class="fids-blip">■</span>
+      </div>
+      <div class="fids-row">
+        <span class="fids-time">11:16</span>
+        <span class="fids-dest">EL SALVADOR</span>
+        <span class="fids-flight">D7310</span>
+        <span class="fids-gate">E06</span>
+        <span class="fids-status on-time">ON TIME</span>
+        <span class="fids-blip">■</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKY.AI brand -->
+  <div class="building-brand">SKY.AI</div>
+
+  <div class="building-content">
+    <h2 class="building-title">
+      building whats<br>
+      <span>next</span>
+    </h2>
+    <div class="building-ctas">
+      <div class="building-ctas-row">
+        <a href="#inscripcion" class="btn-building">Registrarme al <b>summit</b></a>
+        <a href="#hackathon-inscripcion" class="btn-building">Registrarme al <b>hackathon</b></a>
+      </div>
+      <div class="building-ctas-row">
+        <a href="#patrocinador" class="btn-building btn-sponsor">Quiero ser patrocinador</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SPEAKERS =================== -->
+<section id="speakers">
+
+  <!-- FIDS ticker superior -->
+  <div class="speakers-fids-top">
+    <div class="fids-board" id="fids-speakers-top">
+      <div class="fids-row">
+        <span class="fids-time">10:03</span>
+        <span class="fids-dest">DUBAI</span>
+        <span class="fids-flight">A296OC05</span>
+        <span class="fids-status boarding">BOARDING</span>
+        <span class="fids-blip">■</span>
+      </div>
+      <div class="fids-row">
+        <span class="fids-time">10:09</span>
+        <span class="fids-dest">SHANGHAI</span>
+        <span class="fids-flight">B033AD14</span>
+        <span class="fids-status delayed">DELAYED</span>
+        <span class="fids-blip">■</span>
+      </div>
+      <div class="fids-row">
+        <span class="fids-time">10:14</span>
+        <span class="fids-dest">DHAKA</span>
+        <span class="fids-flight">B970OF20</span>
+        <span class="fids-status on-time">ON TIME</span>
+        <span class="fids-blip">■</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- header: title (left) + airplane window (right) -->
+  <div class="speakers-header-wrap">
+    <div class="speakers-title-block">
+      <h2 class="speakers-title">Speakers:<br>Influencers en<br>mundo de la<br>aviación</h2>
+    </div>
+    <!-- ventana oval del avión — imagen configurada en --bg-speakers -->
+    <div class="speakers-window"></div>
+  </div>
+
+  <!-- FIDS ticker inferior (encima del área de la ventana) -->
+  <div class="speakers-fids-top" style="padding-top:0; padding-bottom:40px;">
+    <div class="fids-board" id="fids-speakers-bot">
+      <div class="fids-row">
+        <span class="fids-time">11:16</span>
+        <span class="fids-dest">COSTA RICA</span>
+        <span class="fids-flight">D7310</span>
+        <span class="fids-gate">E06</span>
+        <span class="fids-status on-time">ON TIME</span>
+        <span class="fids-blip">■</span>
+      </div>
+      <div class="fids-row">
+        <span class="fids-time">11:16</span>
+        <span class="fids-dest">EL SALVADOR</span>
+        <span class="fids-flight">D7310</span>
+        <span class="fids-gate">E06</span>
+        <span class="fids-status on-time">ON TIME</span>
+        <span class="fids-blip">■</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker cards -->
+  <div class="speakers-grid-wrap">
+    <div class="speakers-grid">
+
+      <!-- CARD 1 — estilo violeta (con foto) -->
+      <div class="speaker-card">
+        <div class="speaker-photo" style="background-image:url('https://skyaisummit.aeroaiops.com/speakers/speaker1.jpg')"></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Roberto Kriete</div>
+          <div class="speaker-role">President / CEO</div>
+          <div class="speaker-company">MRO Holdings · AVIANCA</div>
+        </div>
+      </div>
+
+      <!-- CARD 2 — estilo oscuro -->
+      <div class="speaker-card">
+        <div class="speaker-photo" style="background-image:url('https://skyaisummit.aeroaiops.com/speakers/speaker2.jpg')"></div>
+        <div class="speaker-info dark">
+          <div class="speaker-name">Nombre Speaker</div>
+          <div class="speaker-role">Cargo / Título</div>
+          <div class="speaker-company">Empresa · Organización</div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="speaker-card">
+        <div class="speaker-photo" style="background-image:url('https://skyaisummit.aeroaiops.com/speakers/speaker3.jpg')"></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Nombre Speaker</div>
+          <div class="speaker-role">Cargo / Título</div>
+          <div class="speaker-company">Empresa · Organización</div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="speaker-card">
+        <div class="speaker-photo" style="background-image:url('https://skyaisummit.aeroaiops.com/speakers/speaker4.jpg')"></div>
+        <div class="speaker-info dark">
+          <div class="speaker-name">Nombre Speaker</div>
+          <div class="speaker-role">Cargo / Título</div>
+          <div class="speaker-company">Empresa · Organización</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== QUE ES =================== -->
 <section id="que-es">
   <div class="que-es-grid">
     <div>
@@ -635,6 +612,7 @@
   </div>
 </section>
 
+<!-- =================== HACKATHON =================== -->
 <section id="hack">
   <div class="hack-wrap">
     <div>
@@ -642,38 +620,15 @@
       <p>48 horas de construcción enfocadas en resolver retos reales de operación, despacho y experiencia de pasajero con inteligencia artificial. Equipos multidisciplinarios, mentores de la industria y un cierre con jurado en vivo.</p>
     </div>
     <div class="timeline">
-      <div class="t-item">
-        <div class="t-dot"></div>
-        <div class="t-text">
-          <div class="t-day">Sábado 23 de enero · 8:00 AM</div>
-          <div class="t-desc">Apertura del Summit</div>
-        </div>
-      </div>
-      <div class="t-item">
-        <div class="t-dot"></div>
-        <div class="t-text">
-          <div class="t-day">Sábado 23 de enero · 9:00 AM</div>
-          <div class="t-desc">Inicio del Hackathon</div>
-        </div>
-      </div>
-      <div class="t-item">
-        <div class="t-dot"></div>
-        <div class="t-text">
-          <div class="t-day">Sábado 23 de enero · 7:00 PM</div>
-          <div class="t-desc">Cierre del Summit</div>
-        </div>
-      </div>
-      <div class="t-item">
-        <div class="t-dot"></div>
-        <div class="t-text">
-          <div class="t-day">Domingo 24 de enero · 2:00 PM</div>
-          <div class="t-desc">Cierre del Hackathon</div>
-        </div>
-      </div>
+      <div class="t-item"><div class="t-dot"></div><div class="t-text"><div class="t-day">Sábado 23 de enero · 8:00 AM</div><div class="t-desc">Apertura del Summit</div></div></div>
+      <div class="t-item"><div class="t-dot"></div><div class="t-text"><div class="t-day">Sábado 23 de enero · 9:00 AM</div><div class="t-desc">Inicio del Hackathon</div></div></div>
+      <div class="t-item"><div class="t-dot"></div><div class="t-text"><div class="t-day">Sábado 23 de enero · 7:00 PM</div><div class="t-desc">Cierre del Summit</div></div></div>
+      <div class="t-item"><div class="t-dot"></div><div class="t-text"><div class="t-day">Domingo 24 de enero · 2:00 PM</div><div class="t-desc">Cierre del Hackathon</div></div></div>
     </div>
   </div>
 </section>
 
+<!-- =================== CIERRE =================== -->
 <section id="cierre">
   <h2>Sé parte del primer encuentro de aviación e inteligencia artificial en la región.</h2>
   <div class="cta-row">
@@ -682,9 +637,43 @@
   </div>
 </section>
 
-<footer>
-  SKY.AI Summit · KEY Institute &amp; Aerojet · El Salvador, 2027
-</footer>
+<footer>SKY.AI Summit · KEY Institute &amp; Aerojet · El Salvador, 2027</footer>
 
+<!-- =================== FIDS SCRAMBLE JS =================== -->
+<script>
+(function(){
+  var CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ';
+  function scrambleEl(el,delay){
+    var orig=el.textContent;
+    setTimeout(function(){
+      var i=0,max=Math.floor(Math.random()*7)+4;
+      var t=setInterval(function(){
+        el.textContent=orig.split('').map(function(c){
+          return c===' '?' ':CHARS[Math.floor(Math.random()*CHARS.length)];
+        }).join('');
+        if(++i>=max){clearInterval(t);el.textContent=orig;}
+      },55);
+    },delay);
+  }
+  function initBoard(board,baseDelay){
+    board.querySelectorAll('.fids-dest,.fids-flight,.fids-gate,.fids-status,.fids-time').forEach(function(el,i){
+      scrambleEl(el,baseDelay+i*120);
+    });
+  }
+  function runAll(){
+    var b1=document.getElementById('fids-building');
+    var b2=document.getElementById('fids-speakers-top');
+    var b3=document.getElementById('fids-speakers-bot');
+    if(b1)initBoard(b1,200);
+    if(b2)initBoard(b2,400);
+    if(b3)initBoard(b3,600);
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    runAll();
+    /* re-scramble cada 8 segundos */
+    setInterval(runAll,8000);
+  });
+})();
+</script>
 </body>
 </html>
