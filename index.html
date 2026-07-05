@@ -655,29 +655,72 @@ a:focus-visible,.pill:focus-visible,.agenda-tab:focus-visible{outline:2px solid 
 
 
 <script>
-/* ─ FIDS scramble ─ */
+/* ─ FIDS scramble ─ Cambio 4 Julio - *8:57 PM */
+/* ─ FIDS live board ─ */
 (function(){
-  var C='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ';
-  function sc(el,d){
-    var o=el.textContent;
+  var C='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+  // Pool of realistic flights — edit freely
+  var FLIGHTS=[
+    {dest:'SAN SALVADOR', flight:'AV 397', gate:'A4', status:'ON TIME',  time:'09:15'},
+    {dest:'BOGOTA',       flight:'AV 213', gate:'B2', status:'BOARDING', time:'09:40'},
+    {dest:'PANAMA CITY',  flight:'CM 361', gate:'A7', status:'ON TIME',  time:'10:05'},
+    {dest:'HOUSTON',      flight:'UA 1421',gate:'B5', status:'GATE OPEN',time:'10:30'},
+    {dest:'MIAMI',        flight:'AA 918', gate:'A2', status:'ON TIME',  time:'10:55'},
+    {dest:'LOS ANGELES',  flight:'AV 560', gate:'B8', status:'BOARDING', time:'11:20'},
+    {dest:'NEW YORK JFK', flight:'B6 1810',gate:'A9', status:'ON TIME',  time:'11:45'},
+    {dest:'GUATEMALA',    flight:'AV 685', gate:'A1', status:'DEPARTED', time:'08:50'},
+    {dest:'SAN JOSE CR',  flight:'AV 631', gate:'B3', status:'ON TIME',  time:'12:10'},
+    {dest:'MEXICO CITY',  flight:'AM 673', gate:'A6', status:'GATE OPEN',time:'12:35'},
+    {dest:'TORONTO',      flight:'AC 1279',gate:'B7', status:'ON TIME',  time:'13:00'},
+    {dest:'MADRID',       flight:'IB 6314',gate:'A8', status:'BOARDING', time:'13:25'}
+  ];
+
+  var offset=0;
+
+  // Scramble FROM current text TO a new target, locking chars left→right
+  function sc(el,target,d){
     setTimeout(function(){
-      var i=0,m=Math.floor(Math.random()*6)+4;
+      var frame=0,total=target.length+6;
       var t=setInterval(function(){
-        el.textContent=o.split('').map(function(c){return c===' '?' ':C[Math.floor(Math.random()*C.length)];}).join('');
-        if(++i>=m){clearInterval(t);el.textContent=o;}
-      },55);
+        var out='';
+        for(var j=0;j<target.length;j++){
+          if(target[j]===' '){out+=' ';continue;}
+          // chars lock in progressively from the left
+          if(j<frame-4){out+=target[j];}
+          else{out+=C[Math.floor(Math.random()*C.length)];}
+        }
+        el.textContent=out;
+        if(++frame>=total){clearInterval(t);el.textContent=target;}
+      },45);
     },d);
   }
+
   function run(){
     document.querySelectorAll('.fids-board').forEach(function(b,bi){
-      b.querySelectorAll('.fids-dest,.fids-flight,.fids-gate,.fids-status,.fids-time').forEach(function(el,i){
-        sc(el,bi*180+i*110);
+      var dests  =b.querySelectorAll('.fids-dest'),
+          flights=b.querySelectorAll('.fids-flight'),
+          gates  =b.querySelectorAll('.fids-gate'),
+          status =b.querySelectorAll('.fids-status'),
+          times  =b.querySelectorAll('.fids-time');
+
+      dests.forEach(function(el,i){
+        var f=FLIGHTS[(offset+bi*dests.length+i)%FLIGHTS.length];
+        var d=bi*180+i*110;
+        sc(el,f.dest,d);
+        if(flights[i]) sc(flights[i],f.flight,d+30);
+        if(gates[i])   sc(gates[i],  f.gate,  d+60);
+        if(status[i])  sc(status[i], f.status,d+90);
+        if(times[i])   sc(times[i],  f.time,  d+120);
       });
     });
   }
-  document.addEventListener('DOMContentLoaded',function(){run();setInterval(run,8000);});
-})();
 
+  document.addEventListener('DOMContentLoaded',function(){
+    run();
+    setInterval(function(){offset++;run();},8000);
+  });
+})();
 /* ─ Agenda tabs ─ */
 document.addEventListener('DOMContentLoaded',function(){
   var tabs=document.querySelectorAll('.agenda-tab');
