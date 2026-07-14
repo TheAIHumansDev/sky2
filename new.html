@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SKY AI Summit 2027 — AI for Aviation</title>
+<meta name="description" content="El primer Summit de Aviación + AI en Latinoamérica. Speakers CEO-level de Boeing, Anthropic, Google DeepMind, Airbus, Embraer y más. Hackathon de 29 horas. El Salvador, 23–24 enero 2027.">
+<meta name="keywords" content="SKY AI Summit, aviación, inteligencia artificial, hackathon, El Salvador, KEY Institute, Aerojet, Latinoamérica, AI aviation, summit 2027">
+<meta name="author" content="KEY Institute + Aerojet">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://skyaisummit.aeroaiops.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://skyaisummit.com/">
+<meta property="og:title" content="SKY AI Summit 2027 — AI for Aviation Hackathon & Summit">
+<meta property="og:description" content="El primer Summit de Aviación + AI en Latinoamérica. Speakers de Boeing, Anthropic, Google DeepMind, Airbus y más. Hackathon de 29 horas. El Salvador, 23–24 enero 2027. Organizado por KEY Institute + Aerojet.">
+<meta property="og:image" content="https://skyaisummit.aeroaiops.com/skyai27.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SKY AI Summit 2027 · El Salvador · 23 enero 2027">
+<meta property="og:locale" content="es_SV">
+<meta property="og:site_name" content="SKY AI Summit 2027">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@font-face{
+  font-family:'Open Sauce One';
+  src:url('https://skyaisummit.aeroaiops.com/fonts/OpenSauceOne-Bold.woff2') format('woff2');
+  font-weight:700; font-display:swap;
+}
+:root{
+  --ice:#FCFCFD;
+  --blue:#2A6EF5;
+  --violet:#7654FD;
+  --gray-blue:#B4B7D9;
+  --ink:#070512;
+
+  /* ===== FONDOS — CAMBIA ESTAS URLs ===== */
+  --bg-hero:      url('https://skyaisummit.aeroaiops.com/fondo3.png');
+  --bg-registro:  url('https://skyaisummit.aeroaiops.com/fondo4.png');
+  --bg-building:  url('https://skyaisummit.aeroaiops.com/fondo5.png');
+  --bg-speakers:  url('https://skyaisummit.aeroaiops.com/fondo3.png');
+
+  /* ===== FOTOS DE SPEAKERS (speaker-grid) ===== */
+  --sp1: url('https://skyaisummit.aeroaiops.com/sp01.png');
+  --sp2: url('https://skyaisummit.aeroaiops.com/sp01.png');
+  --sp3: url('https://skyaisummit.aeroaiops.com/sp01.png');
+  --sp4: url('https://skyaisummit.aeroaiops.com/sp01.png');
+  --sp5: url('https://skyaisummit.aeroaiops.com/sp01.png');
+  --sp6: url('https://skyaisummit.aeroaiops.com/sp01.png');
+
+  /* ===== FOTOGRAMAS DEL AVIÓN DESCENDIENDO (scroll) — CAMBIA ESTAS URLs =====
+     Sube 5 fotos del mismo avión en distintas posiciones/inclinaciones de
+     descenso (ideal: misma perspectiva, distinto ángulo/altura) y reemplaza
+     cada URL abajo. */
+  --plane1: url('https://skyaisummit.aeroaiops.com/avion01.png');
+  --plane2: url('https://skyaisummit.aeroaiops.com/avion02.png');
+  --plane3: url('https://skyaisummit.aeroaiops.com/avion03.png');
+  --plane4: url('https://skyaisummit.aeroaiops.com/avion04.png');
+  --plane5: url('https://skyaisummit.aeroaiops.com/avion05.png');
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',sans-serif;background:var(--ink);color:var(--ice);overflow-x:hidden;}
+
+/* ─── HERO ─────────────────────────────── */
+.hero{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;
+  background:
+    radial-gradient(ellipse 1200px 800px at 78% 38%,rgba(118,84,253,.55),transparent 60%),
+    linear-gradient(115deg,#07050f 0%,#1c1140 28%,#4a2fd1 56%,#2a6ef5 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:var(--bg-hero);background-size:cover;background-position:center;
+  pointer-events:none;z-index:0;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 1200px 800px at 78% 38%,rgba(118,84,253,.35),transparent 60%),
+    linear-gradient(115deg,rgba(7,5,15,.85) 0%,rgba(28,17,64,.55) 28%,rgba(74,47,209,.3) 56%,rgba(42,110,245,.15) 100%);
+  pointer-events:none;z-index:1;
+}
+.hero-grid,.hero-glow{z-index:2;}
+nav,.hero-content{z-index:10;}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(180,183,217,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(180,183,217,.06) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:linear-gradient(to bottom,black,transparent 75%);pointer-events:none;
+}
+.hero-glow{
+  position:absolute;width:900px;height:900px;right:-220px;top:-260px;
+  background:radial-gradient(circle,rgba(42,110,245,.45),transparent 65%);filter:blur(10px);pointer-events:none;
+}
+nav{
+  position:relative;z-index:20;display:flex;align-items:center;
+  justify-content:space-between;padding:34px 56px 0;flex-wrap:wrap;gap:18px;
+}
+.logo{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.7rem;
+  letter-spacing:.5px;color:var(--ice);display:flex;align-items:center;gap:8px;
+}
+.logo .dot{
+  width:9px;height:9px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 0 12px var(--blue);
+}
+.nav-links{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.pill{
+  font-family:'Manrope',sans-serif;font-size:.92rem;font-weight:600;color:var(--ice);
+  text-decoration:none;padding:13px 26px;border-radius:999px;
+  background:rgba(7,5,18,.55);border:1px solid rgba(180,183,217,.18);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);white-space:nowrap;transition:all .25s;
+  box-shadow:0 8px 24px rgba(3,2,10,.45),0 2px 6px rgba(3,2,10,.35);
+}
+.pill:hover{background:rgba(180,183,217,.12);border-color:rgba(252,252,253,.4);transform:translateY(-1px);box-shadow:0 12px 30px rgba(3,2,10,.55),0 3px 8px rgba(3,2,10,.4);}
+.pill.cta-summit,.pill.cta-hack{
+  background:rgba(7,5,18,.55);border-color:rgba(180,183,217,.18);
+}
+.pill.cta-summit:hover,.pill.cta-hack:hover{
+  background:rgba(180,183,217,.12);border-color:rgba(252,252,253,.4);
+}
+.pill.lang-toggle{
+  padding:13px 20px;font-weight:700;letter-spacing:.5px;
+  display:flex;align-items:center;gap:6px;cursor:pointer;
+}
+.pill.lang-toggle .lang-opt{opacity:.45;transition:opacity .2s;}
+.pill.lang-toggle .lang-opt.active{opacity:1;}
+.pill.lang-toggle .lang-sep{opacity:.35;}
+.hero-content{
+  position:relative;z-index:10;flex:1;display:flex;flex-direction:column;
+  justify-content:center;padding:60px 56px 90px;max-width:1180px;
+}
+.eyebrow{font-size:.95rem;font-weight:600;color:var(--gray-blue);letter-spacing:.5px;margin-bottom:18px;}
+.eyebrow span{color:var(--ice);font-weight:700;}
+h1{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:clamp(2.4rem,5.6vw,5.2rem);line-height:1.04;letter-spacing:-1px;color:var(--ice);max-width:920px;
+}
+h1 b{
+  font-weight:700;
+  background:linear-gradient(100deg,var(--ice) 0%,#cfd6ff 35%,var(--gray-blue) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-meta{margin-top:42px;display:flex;gap:38px;flex-wrap:wrap;}
+.meta-item{display:flex;flex-direction:column;gap:4px;}
+.meta-label{font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray-blue);font-weight:700;}
+.meta-value{font-size:1.02rem;font-weight:600;color:var(--ice);}
+.hero-bottom-line{
+  position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(180,183,217,.35),transparent);
+}
+
+/* ─── FIDS esquina inferior izquierda del HERO ─── */
+.fids-hero-corner{
+  position:absolute;left:56px;bottom:38px;z-index:12;max-width:420px;
+}
+
+/* ─── REGISTRO ──────────────────────────── */
+#registro{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;overflow:hidden;background:var(--ink);padding:0;
+}
+#registro .registro-bg{position:absolute;inset:0;background-image:var(--bg-registro);background-size:cover;background-position:center;z-index:0;}
+#registro .registro-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,5,18,.15) 0%,rgba(7,5,18,.05) 45%,rgba(7,5,18,.55) 75%,var(--ink) 100%);z-index:1;
+}
+.registro-buttons{
+  position:relative;z-index:5;display:flex;gap:24px;flex-wrap:wrap;
+  justify-content:center;padding:0 24px;margin-top:18vh;margin-bottom:auto;
+}
+.btn-registro{
+  font-family:'Manrope',sans-serif;font-size:1.55rem;font-weight:500;color:var(--ice);
+  text-decoration:none;padding:26px 56px;border-radius:999px;
+  background:rgba(118,84,253,.65);border:1px solid rgba(252,252,253,.25);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 8px 32px rgba(7,5,18,.35);transition:all .25s;white-space:nowrap;
+}
+.btn-registro b{font-weight:700;}
+.btn-registro:hover{background:rgba(118,84,253,.88);transform:translateY(-2px);}
+.registro-wordmark{
+  position:relative;z-index:4;width:100%;text-align:center;
+  line-height:.82;margin-top:6vh;padding-bottom:2vh;pointer-events:none;user-select:none;
+}
+.registro-wordmark span{
+  font-family:'Open Sauce One','Space Grotesk',sans-serif;font-weight:700;
+  font-size:min(28vw,50rem);color:rgba(118,84,253,.65);letter-spacing:-.02em;
+}
+
+/* ─── AVIÓN DESCENDIENDO AL HACER SCROLL ─── */
+#plane-descent{
+  position:relative;height:400vh;background:var(--ink);
+}
+.plane-descent-sticky{
+  position:sticky;top:0;height:100vh;overflow:hidden;
+  display:flex;align-items:flex-start;justify-content:center;
+}
+.plane-descent-sticky::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 900px 700px at 50% 0%,rgba(118,84,253,.18),transparent 65%),
+    linear-gradient(180deg,#07050f 0%,#0c0a1c 55%,#101229 100%);
+  z-index:0;
+}
+.plane-descent-label{
+  position:absolute;top:48px;left:50%;transform:translateX(-50%);
+  z-index:3;text-align:center;pointer-events:none;
+}
+.plane-descent-label .eyebrow{color:var(--gray-blue);}
+.plane-descent-label h3{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ice);
+  font-size:clamp(1.6rem,3vw,2.6rem);letter-spacing:-.5px;
+}
+.plane-frame{
+  position:absolute;left:50%;top:22vh;
+  width:min(58vw,560px);aspect-ratio:1/1;
+  background-size:contain;background-repeat:no-repeat;background-position:center;
+  transform:translate(-50%,0) scale(.92);
+  opacity:0;transition:opacity .4s ease;
+  z-index:2;will-change:transform,opacity;
+}
+.plane-frame.active{opacity:1;}
+.plane-descent-progress{
+  position:absolute;right:48px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:14px;z-index:3;
+}
+.plane-descent-progress .dot{
+  width:9px;height:9px;border-radius:50%;background:rgba(180,183,217,.3);transition:all .3s;
+}
+.plane-descent-progress .dot.active{background:var(--ice);box-shadow:0 0 10px rgba(252,252,253,.7);transform:scale(1.3);}
+
+/* ─── BUILDING WHATS NEXT ───────────────── */
+#building{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+#building .building-bg{position:absolute;inset:0;background-image:var(--bg-building);background-size:cover;background-position:center;z-index:0;}
+#building .building-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(7,5,18,.45) 0%,rgba(7,5,18,.1) 50%,transparent 100%);z-index:1;
+}
+.fids-board{
+  position:relative;z-index:5;font-family:'Courier New',Courier,monospace;font-weight:bold;
+  font-size:.95rem;letter-spacing:.1em;line-height:2;
+  background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.08);
+  padding:12px 20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+.fids-row{display:flex;align-items:center;gap:16px;white-space:nowrap;}
+.fids-time{color:var(--ice);min-width:48px;}
+.fids-dest{color:#F5C518;min-width:120px;}
+.fids-flight{color:var(--ice);min-width:65px;}
+.fids-gate{color:var(--ice);min-width:38px;}
+.fids-status{font-weight:bold;}
+.fids-status.on-time{color:#4ade80;}
+.fids-status.boarding{color:#60a5fa;}
+.fids-status.delayed{color:#f87171;}
+.fids-blip{color:#555;animation:blink .9s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.building-fids-wrap{position:relative;z-index:5;display:flex;justify-content:flex-end;padding:32px 52px 0;}
+.building-brand{
+  position:absolute;top:36px;right:54px;z-index:6;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.45rem;color:var(--ice);
+}
+.building-content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 56px 70px;}
+.building-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(4.5rem,9vw,11rem);line-height:.95;letter-spacing:-2px;
+  color:var(--ice);margin-bottom:56px;max-width:1100px;
+}
+.building-ctas{display:flex;flex-direction:column;align-items:center;gap:18px;}
+.building-ctas-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+.btn-building{
+  font-family:'Manrope',sans-serif;font-size:1.2rem;font-weight:500;color:var(--ice);
+  text-decoration:none;padding:20px 48px;border-radius:999px;
+  background:rgba(118,84,253,.65);border:1px solid rgba(252,252,253,.22);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 6px 28px rgba(7,5,18,.4);transition:all .25s;white-space:nowrap;
+}
+.btn-building b{font-weight:800;}
+.btn-building:hover{background:rgba(118,84,253,.88);transform:translateY(-2px);}
+.btn-building.btn-sponsor{background:rgba(7,5,18,.5);border-color:rgba(252,252,253,.3);font-size:1.05rem;}
+.btn-building.btn-sponsor:hover{background:rgba(252,252,253,.12);border-color:rgba(252,252,253,.6);}
+
+/* ─── SPEAKERS (ventana + FIDS) ─────────── */
+#speakers{position:relative;background:var(--ink);padding:0;overflow:hidden;}
+.speakers-fids-top{position:relative;z-index:5;padding:52px 52px 0;display:flex;flex-direction:column;}
+.speakers-header-wrap{
+  position:relative;z-index:4;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;min-height:65vh;padding:0 52px;
+}
+.speakers-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.8rem,5.5vw,6.2rem);line-height:1;letter-spacing:-1.5px;color:var(--ice);
+}
+.speakers-window{
+  justify-self:center;
+  width:clamp(300px,38vw,560px);height:clamp(380px,48vw,700px);
+  border-radius:50%/42%;
+  background-image:var(--bg-speakers);background-size:cover;background-position:center;
+  box-shadow:0 0 80px rgba(0,0,0,.8),0 0 0 3px rgba(180,183,217,.12);overflow:hidden;
+}
+
+/* ─── SPEAKER CARD GRID (nueva sección) ─── */
+#speaker-grid{background:var(--ink);padding:0;}
+.spk-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.spk-card{display:flex;min-height:300px;overflow:hidden;}
+.spk-photo{
+  width:55%;flex-shrink:0;
+  background-size:cover;background-position:center top;
+  background-color:#1a1a2e;
+}
+/* Asigna cada foto via :nth-child */
+.spk-card:nth-child(1) .spk-photo{background-image:var(--sp1);}
+.spk-card:nth-child(2) .spk-photo{background-image:var(--sp2);}
+.spk-card:nth-child(3) .spk-photo{background-image:var(--sp3);}
+.spk-card:nth-child(4) .spk-photo{background-image:var(--sp4);}
+.spk-card:nth-child(5) .spk-photo{background-image:var(--sp5);}
+.spk-card:nth-child(6) .spk-photo{background-image:var(--sp6);}
+
+.spk-info{
+  flex:1;padding:36px 30px;display:flex;flex-direction:column;justify-content:center;
+  border-left:1px solid rgba(255,255,255,.06);
+}
+/* Mismo estilo oscuro para todos los paneles — resaltan igual contra el fondo */
+.spk-card .spk-info{background:rgba(7,5,18,.94);}
+
+.spk-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.55rem;color:var(--ice);line-height:1.2;margin-bottom:6px;}
+.spk-role{font-size:1rem;font-weight:600;color:var(--gray-blue);margin-bottom:14px;}
+.spk-company{font-size:.82rem;color:rgba(252,252,253,.7);letter-spacing:.3px;}
+
+/* ─── SOBRE EL EVENTO ───────────────────── */
+#sobre{background:var(--violet);padding:0;overflow:hidden;}
+
+.sobre-wordmark{
+  text-align:center;line-height:.8;padding-top:32px;
+  pointer-events:none;user-select:none;overflow:hidden;
+}
+.sobre-wordmark span{
+  font-family:'Open Sauce One','Space Grotesk',sans-serif;font-weight:700;
+  font-size:min(30vw,55rem);color:rgba(255,255,255,.18);letter-spacing:-.02em;
+}
+
+.sobre-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  padding:60px 64px 0;
+}
+.sobre-label{font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px;}
+.sobre-heading{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.15;
+  color:var(--ice);text-transform:uppercase;letter-spacing:.5px;margin-bottom:28px;
+}
+.sobre-copy p{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,.88);margin-bottom:16px;}
+.sobre-venue{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.45rem;color:var(--ice);line-height:1.3;margin-bottom:18px;}
+.sobre-venue-copy{font-size:1rem;line-height:1.7;color:rgba(255,255,255,.85);margin-bottom:32px;}
+
+.sobre-info-boxes{display:flex;flex-direction:column;gap:12px;}
+.sobre-info-box{
+  border:1.5px solid rgba(255,255,255,.45);
+  padding:18px 24px;color:var(--ice);font-weight:600;font-size:1rem;
+  letter-spacing:.2px;border-radius:6px;
+}
+
+.sobre-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  padding:48px 64px 72px;
+}
+.stat-card{
+  border-radius:20px;padding:44px 28px;text-align:center;
+}
+.stat-card.dark,.stat-card.v1,.stat-card.v2,.stat-card.v3{background:#0c0c0c;}
+.stat-num{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.8rem,4vw,4.2rem);color:var(--ice);line-height:1;display:block;
+}
+.stat-lbl{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1px;display:block;margin-top:8px;}
+
+/* ─── AGENDA DEL DÍA ────────────────────── */
+#agenda{background:#6b3ae6;padding:80px 64px;}   /* ligeramente más oscuro que violet */
+.agenda-header{text-align:center;margin-bottom:40px;}
+.agenda-pre{font-size:.88rem;color:rgba(255,255,255,.6);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;}
+.agenda-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.8rem,5vw,5.5rem);color:var(--ice);letter-spacing:-.5px;
+}
+.agenda-tabs{display:flex;justify-content:center;gap:14px;margin-bottom:48px;flex-wrap:wrap;}
+.agenda-tab{
+  font-family:'Manrope',sans-serif;font-size:1.05rem;font-weight:600;color:var(--ice);
+  padding:16px 34px;border-radius:999px;border:1.5px solid rgba(255,255,255,.4);
+  background:transparent;cursor:pointer;transition:all .2s;
+}
+.agenda-tab:hover{background:rgba(255,255,255,.12);}
+.agenda-tab.active{background:var(--ice);color:#5a30d0;border-color:var(--ice);}
+
+.agenda-list{display:none;}
+.agenda-list.active{display:block;}
+.agenda-row{
+  display:grid;grid-template-columns:2fr 1.2fr 2fr;
+  padding:22px 0;border-bottom:1px solid rgba(255,255,255,.2);gap:20px;align-items:center;
+}
+.agenda-row:last-child{border-bottom:none;}
+.agenda-act{font-weight:700;font-size:1.02rem;color:var(--ice);}
+.agenda-time{font-size:.95rem;color:rgba(255,255,255,.75);font-weight:500;}
+.agenda-loc{font-size:.95rem;color:rgba(255,255,255,.75);text-align:right;}
+
+/* ─── QUE ES ────────────────────────────── */
+section{padding:120px 56px;position:relative;}
+.section-label{font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:18px;}
+#que-es{background:var(--ice);color:var(--ink);}
+#que-es .section-label{color:var(--blue);}
+.que-es-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;max-width:1280px;margin:0 auto;}
+.que-es-grid h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1.18;letter-spacing:-.5px;color:var(--ink);}
+.que-es-grid h2 i{font-style:normal;color:var(--blue);}
+.que-es-copy p{font-size:1.08rem;line-height:1.7;color:#3b3b4d;margin-bottom:20px;}
+.organizers{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+.org-chip{font-size:.85rem;font-weight:700;padding:10px 20px;border-radius:999px;border:1.5px solid #1f1840;color:#1f1840;}
+
+/* ─── HACKATHON ─────────────────────────── */
+#hack{background:linear-gradient(120deg,#0c0820 0%,#221356 55%,#2a6ef5 130%);padding:90px 56px;}
+.hack-wrap{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+.hack-wrap h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.2;color:var(--ice);margin-bottom:20px;}
+.hack-wrap p{color:var(--gray-blue);font-size:1.05rem;line-height:1.7;}
+.timeline{display:flex;flex-direction:column;}
+.t-item{display:flex;gap:22px;padding:22px 0;border-bottom:1px solid rgba(180,183,217,.18);}
+.t-item:last-child{border-bottom:none;}
+.t-dot{width:11px;height:11px;border-radius:50%;margin-top:6px;background:var(--ice);flex-shrink:0;box-shadow:0 0 10px rgba(252,252,253,.6);}
+.t-text .t-day{font-weight:700;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--gray-blue);margin-bottom:4px;}
+.t-text .t-desc{font-size:1.05rem;font-weight:600;color:var(--ice);}
+
+/* ─── CIERRE CTA ────────────────────────── */
+#cierre{background:var(--ice);color:var(--ink);text-align:center;padding:120px 24px 80px;}
+#cierre h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(2rem,4vw,3.4rem);letter-spacing:-1px;max-width:780px;margin:0 auto 36px;line-height:1.15;}
+.cta-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.btn-dark{background:var(--ink);color:var(--ice);padding:16px 34px;border-radius:999px;font-weight:700;text-decoration:none;font-size:.95rem;transition:all .25s;}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.2);}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink);padding:16px 34px;border-radius:999px;font-weight:700;text-decoration:none;font-size:.95rem;transition:all .25s;}
+.btn-outline:hover{background:var(--ink);color:var(--ice);}
+
+footer{background:var(--ink);color:var(--gray-blue);text-align:center;padding:30px;font-size:.85rem;}
+
+/* ─── RESPONSIVE ────────────────────────── */
+@media(max-width:900px){
+  nav{padding:24px 24px 0;}
+  .hero-content,.building-content{padding:50px 24px 60px;}
+  section{padding:80px 24px;}
+  .que-es-grid,.hack-wrap,.spk-grid{grid-template-columns:1fr;}
+  .speakers-header-wrap{grid-template-columns:1fr;min-height:auto;padding:40px 24px;gap:32px;}
+  .speakers-title{font-size:clamp(2.2rem,8vw,3.8rem);}
+  .speakers-window{width:260px;height:320px;}
+  .speakers-fids-top{padding:28px 24px 0;}
+  .building-fids-wrap,.building-brand{right:24px;}
+  .building-title{font-size:clamp(3rem,12vw,6rem);letter-spacing:-1px;}
+  .btn-registro,.btn-building{font-size:1rem;padding:16px 28px;}
+  .sobre-grid{grid-template-columns:1fr;gap:40px;padding:40px 24px 0;}
+  .sobre-stats{grid-template-columns:repeat(2,1fr);padding:36px 24px 48px;}
+  #agenda{padding:60px 24px;}
+  .agenda-row{grid-template-columns:1fr;gap:4px;}
+  .agenda-loc{text-align:left;}
+  .spk-card{min-height:220px;}
+  .fids-hero-corner{left:24px;bottom:24px;max-width:260px;transform:scale(.82);transform-origin:bottom left;}
+  .plane-descent-progress{right:20px;}
+  .plane-frame{width:78vw;}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+a:focus-visible,.pill:focus-visible,.agenda-tab:focus-visible{outline:2px solid var(--ice);outline-offset:3px;}
+</style>
+
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P0YWNJFNTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P0YWNJFNTC');
+</script>
+  
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <nav>
+    <div class="logo"><span class="dot"></span>SKY.AI</div>
+    <div class="nav-links">
+      <a href="#sobre" class="pill" data-i18n="nav-que-es">Qué es Sky AI</a>
+      <a href="#speakers" class="pill" data-i18n="nav-speakers">Speakers</a>
+      <a href="#agenda" class="pill" data-i18n="nav-agenda">Agenda</a>
+      <a href="#inscripcion" class="pill cta-summit" data-i18n="cta-summit">Inscribirme al Summit</a>
+      <a href="#hackathon-inscripcion" class="pill cta-hack" data-i18n="cta-hack">Inscribirme al Hackathon</a>
+      <button type="button" class="pill lang-toggle" id="lang-toggle" aria-label="Switch language / Cambiar idioma">
+        <span class="lang-opt active" data-lang="es">ES</span><span class="lang-sep">/</span><span class="lang-opt" data-lang="en">EN</span>
+      </button>
+    </div>
+  </nav>
+  <div class="hero-content">
+    <div class="eyebrow" data-i18n="hero-eyebrow">Un evento organizado por <span>KEY Institute</span> y <span>Aerojet</span></div>
+    <h1 data-i18n="hero-h1">El primer <b>Summit y Hackathon</b> de aviación + AI de la región.</h1>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-label" data-i18n="meta-lugar-label">Lugar</span><span class="meta-value">KEY Institute + Auditorio FEPADE</span></div>
+      <div class="meta-item"><span class="meta-label">Summit</span><span class="meta-value" data-i18n="meta-summit-value">Sábado 23 de enero · 8:00 AM – 7:00 PM</span></div>
+      <div class="meta-item"><span class="meta-label">Hackathon</span><span class="meta-value" data-i18n="meta-hack-value">23 ene 9:00 AM → 24 ene 2:00 PM</span></div>
+    </div>
+  </div>
+
+  <!-- Pantalla de vuelos — esquina inferior izquierda -->
+  <div class="fids-board fids-hero-corner" data-static="1">
+    <div class="fids-row"><span class="fids-time">08:40</span><span class="fids-dest">EL SALVADOR</span><span class="fids-flight">AV 397</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+    <div class="fids-row"><span class="fids-time">09:15</span><span class="fids-dest">BOGOTÁ</span><span class="fids-flight">AV 213</span><span class="fids-status boarding">BOARDING</span><span class="fids-blip">■</span></div>
+    <div class="fids-row"><span class="fids-time">10:05</span><span class="fids-dest">NEW YORK JFK</span><span class="fids-flight">B6 1810</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+    <div class="fids-row"><span class="fids-time">10:50</span><span class="fids-dest">MADRID</span><span class="fids-flight">IB 6314</span><span class="fids-status boarding">BOARDING</span><span class="fids-blip">■</span></div>
+  </div>
+
+  <div class="hero-bottom-line"></div>
+</section>
+
+
+<!-- ═══════════ SOBRE EL EVENTO ═══════════ -->
+<section id="sobre">
+  <div class="sobre-wordmark"><span>SKY.AI</span></div>
+  <div class="sobre-grid">
+    <div>
+      <div class="sobre-label" data-i18n="sobre-label">Sobre el evento</div>
+      <h2 class="sobre-heading" data-i18n="sobre-heading">Donde la aviación<br>comercial aterriza<br>en el futuro</h2>
+      <div class="sobre-copy">
+        <p data-i18n="sobre-p1">KEY Institute y Aerojet crean el primer espacio en Latinoamérica donde los tomadores de decisiones de la aviación comercial se reúnen para explorar, debatir y co-crear con inteligencia artificial.</p>
+        <p data-i18n="sobre-p2">Contenido de clase mundial, speakers CEO-level de las empresas líderes globales, y un hackathon de 29 horas que reta a los mejores talentos de la región.</p>
+      </div>
+    </div>
+    <div>
+      <div class="sobre-venue">Key Institute + Auditorio Fepade<br>El Salvador</div>
+      <p class="sobre-venue-copy" data-i18n="sobre-venue-copy">El Salvador — Dos venues icónicos para una experiencia de summit completa: keynotes magistrales, networking, talleres de hackathon y cena VIP en el Centro Histórico.</p>
+      <div class="sobre-info-boxes">
+        <div class="sobre-info-box" data-i18n="info-box-1">Summit/ Sáb 23 ene — 8:00 AM</div>
+        <div class="sobre-info-box" data-i18n="info-box-2">Hack inicio/ Sáb 23 ene — 9:00 AM</div>
+        <div class="sobre-info-box" data-i18n="info-box-3">Cierre Hack/ Dom 24 ene — 5:00 PM</div>
+      </div>
+    </div>
+  </div>
+  <div class="sobre-stats">
+    <div class="stat-card dark"><span class="stat-num">12</span><span class="stat-lbl">Speakers</span></div>
+    <div class="stat-card v1"><span class="stat-num">29H</span><span class="stat-lbl">Hack</span></div>
+    <div class="stat-card v2"><span class="stat-num">2</span><span class="stat-lbl" data-i18n="stat-sedes">Sedes</span></div>
+    <div class="stat-card v3"><span class="stat-num">15</span><span class="stat-lbl">Sponsors</span></div>
+  </div>
+</section>
+
+
+<!-- ═══════════ AVIÓN DESCENDIENDO AL HACER SCROLL ═══════════ -->
+<section id="plane-descent">
+  <div class="plane-descent-sticky">
+    <div class="plane-descent-label">
+      <div class="eyebrow" data-i18n="plane-eyebrow">Descenso final</div>
+      <h3 data-i18n="plane-h3">Aterrizando en El Salvador</h3>
+    </div>
+    <!-- 5 fotogramas del avión — reemplaza --plane1..--plane5 en :root -->
+    <div class="plane-frame" data-frame="1" style="background-image:var(--plane1)"></div>
+    <div class="plane-frame" data-frame="2" style="background-image:var(--plane2)"></div>
+    <div class="plane-frame" data-frame="3" style="background-image:var(--plane3)"></div>
+    <div class="plane-frame" data-frame="4" style="background-image:var(--plane4)"></div>
+    <div class="plane-frame" data-frame="5" style="background-image:var(--plane5)"></div>
+    <div class="plane-descent-progress">
+      <div class="dot" data-dot="1"></div>
+      <div class="dot" data-dot="2"></div>
+      <div class="dot" data-dot="3"></div>
+      <div class="dot" data-dot="4"></div>
+      <div class="dot" data-dot="5"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ SPEAKERS (ventana + FIDS) ═══════════ -->
+<section id="speakers">
+  <div class="speakers-fids-top">
+    <div class="fids-board" id="fids-spk-top">
+      <div class="fids-row"><span class="fids-time">10:03</span><span class="fids-dest">DUBAI</span><span class="fids-flight">A296OC05</span><span class="fids-status boarding">BOARDING</span><span class="fids-blip">■</span></div>
+      <div class="fids-row"><span class="fids-time">10:09</span><span class="fids-dest">SHANGHAI</span><span class="fids-flight">B033AD14</span><span class="fids-status delayed">DELAYED</span><span class="fids-blip">■</span></div>
+      <div class="fids-row"><span class="fids-time">10:14</span><span class="fids-dest">DHAKA</span><span class="fids-flight">B970OF20</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+    </div>
+  </div>
+  <div class="speakers-header-wrap">
+    <div class="speakers-title-block">
+      <h2 class="speakers-title" data-i18n="speakers-title">Speakers:<br>Influencers en<br>mundo de la<br>aviación</h2>
+    </div>
+    <div class="speakers-window"></div>
+  </div>
+  <div class="speakers-fids-top" style="padding-top:0;padding-bottom:40px;">
+    <div class="fids-board" id="fids-spk-bot">
+      <div class="fids-row"><span class="fids-time">11:16</span><span class="fids-dest">COSTA RICA</span><span class="fids-flight">D7310</span><span class="fids-gate">E06</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+      <div class="fids-row"><span class="fids-time">11:16</span><span class="fids-dest">EL SALVADOR</span><span class="fids-flight">D7310</span><span class="fids-gate">E06</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ SPEAKER CARD GRID ═══════════ -->
+<section id="speaker-grid">
+  <div class="spk-grid">
+
+    <div class="spk-card">
+      <!-- Foto: reemplaza var(--sp1) en :root con la URL real -->
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Roberto Kriete</div>
+        <div class="spk-role">President / CEO</div>
+        <div class="spk-company">MRO Holdings · AVIANCA</div>
+      </div>
+    </div>
+
+    <div class="spk-card">
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Sofia Portela</div>
+        <div class="spk-role">Co-Founder / VP</div>
+        <div class="spk-company">Aerojet Handling Group</div>
+      </div>
+    </div>
+
+    <div class="spk-card">
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Luis Áviles</div>
+        <div class="spk-role">AI Developer</div>
+        <div class="spk-company">Google Developers</div>
+      </div>
+    </div>
+
+    <div class="spk-card">
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">David Hernández</div>
+        <div class="spk-role">LATAM Manager</div>
+        <div class="spk-company">IATA</div>
+      </div>
+    </div>
+
+    <div class="spk-card">
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Ramón Miró</div>
+        <div class="spk-role" data-i18n="spk-ramon-role">Presidente / CEO</div>
+        <div class="spk-company">Quiport</div>
+      </div>
+    </div>
+
+    <div class="spk-card">
+      <div class="spk-photo"></div>
+      <div class="spk-info">
+        <div class="spk-name">Vanessa Dardon</div>
+        <div class="spk-role">Business Support Manager</div>
+        <div class="spk-company">Qatar Airways</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════ AGENDA DEL DÍA ═══════════ -->
+<section id="agenda">
+  <div class="agenda-header">
+    <div class="agenda-pre" data-i18n="agenda-pre">Plan de Vuelo</div>
+    <h2 class="agenda-title" data-i18n="agenda-title">Agenda del día</h2>
+  </div>
+  <div class="agenda-tabs">
+    <button class="agenda-tab active" data-day="summit" data-i18n="tab-summit">Summit – Día 1</button>
+    <button class="agenda-tab" data-day="hack1">Hack – Day 1</button>
+    <button class="agenda-tab" data-day="hack2">Hack – Day 2</button>
+  </div>
+
+  <!-- Summit Día 1 -->
+  <div class="agenda-list active" id="day-summit">
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-1">Registro de asistentes</span><span class="agenda-time">7:30 – 8:15 AM</span><span class="agenda-loc">Welcome Center KEY / Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-2">Ceremonia de apertura</span><span class="agenda-time">8:15 – 8:45 AM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-3">Keynote: AI en la aviación comercial</span><span class="agenda-time">9:00 – 9:45 AM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-4">Panel: Casos de uso de AI en operaciones</span><span class="agenda-time">10:00 – 10:45 AM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Coffee Break & Networking</span><span class="agenda-time">11:00 – 11:30 AM</span><span class="agenda-loc">Lobby KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-6">Keynote: Futuro del despacho con AI</span><span class="agenda-time">11:30 AM – 12:15 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-7">Almuerzo & Networking</span><span class="agenda-time">12:15 – 1:30 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-8">Panel: AI en experiencia del pasajero</span><span class="agenda-time">1:30 – 2:15 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-9">Keynote: Seguridad y AI en aviación</span><span class="agenda-time">2:30 – 3:15 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-10">Mesa redonda: Regulación e IA</span><span class="agenda-time">3:15 – 4:00 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act">Coffee Break</span><span class="agenda-time">4:00 – 4:30 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-12">Sesiones paralelas / Talleres</span><span class="agenda-time">4:30 – 6:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="s-act-13">Clausura del Summit</span><span class="agenda-time">6:00 – 7:00 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+  </div>
+
+  <!-- Hack Day 1 -->
+  <div class="agenda-list" id="day-hack1">
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h1-act-1">Lanzamiento del Hackathon</span><span class="agenda-time">9:00 AM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h1-act-2">Formación de equipos & Briefing</span><span class="agenda-time">9:30 – 11:00 AM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h1-act-3">Inicio de construcción</span><span class="agenda-time">11:00 AM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h1-act-4">Almuerzo para hackers</span><span class="agenda-time">1:00 – 2:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h1-act-5">Check-in de mentores</span><span class="agenda-time">4:00 – 5:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h1-act-6">Cena para hackers</span><span class="agenda-time">8:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act">Mid-hack check</span><span class="agenda-time">10:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+  </div>
+
+  <!-- Hack Day 2 -->
+  <div class="agenda-list" id="day-hack2">
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h2-act-1">Desayuno para hackers</span><span class="agenda-time">8:00 – 9:00 AM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h2-act-2">Sesión final de mentores</span><span class="agenda-time">9:00 – 11:00 AM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h2-act-3">Freeze — cierre de código</span><span class="agenda-time">12:00 PM</span><span class="agenda-loc">KEY Institute</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h2-act-4">Presentaciones finales</span><span class="agenda-time">12:00 – 1:30 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h2-act-5">Deliberación del jurado</span><span class="agenda-time">1:30 – 2:00 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+    <div class="agenda-row"><span class="agenda-act" data-i18n="h2-act-6">Premiación & Clausura</span><span class="agenda-time">2:00 PM</span><span class="agenda-loc">Auditorio FEPADE</span></div>
+  </div>
+</section>
+
+
+<!-- ═══════════ BUILDING WHATS NEXT ═══════════ -->
+<section id="building">
+  <div class="building-bg"></div>
+  <div class="building-overlay"></div>
+  <div class="building-fids-wrap">
+    <div class="fids-board">
+      <div class="fids-row"><span class="fids-time">11:16</span><span class="fids-dest">COSTA RICA</span><span class="fids-flight">D7310</span><span class="fids-gate">E06</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+      <div class="fids-row"><span class="fids-time">11:16</span><span class="fids-dest">EL SALVADOR</span><span class="fids-flight">D7310</span><span class="fids-gate">E06</span><span class="fids-status on-time">ON TIME</span><span class="fids-blip">■</span></div>
+    </div>
+  </div>
+  <div class="building-brand">SKY.AI</div>
+  <div class="building-content">
+    <h2 class="building-title">building whats<br><span>next</span></h2>
+    <div class="building-ctas">
+      <div class="building-ctas-row">
+        <a href="hackers.html" class="btn-building" data-i18n="build-cta-summit">Registrarme al <b>summit</b></a>
+        <a href="hackers.html" class="btn-building" data-i18n="build-cta-hack">Registrarme al <b>hackathon</b></a>
+      </div>
+      <div class="building-ctas-row">
+        <a href="sponsors.html" class="btn-building btn-sponsor" data-i18n="build-sponsor">Quiero ser patrocinador</a>
+        <a href="mentor.html" class="btn-building btn-sponsor" data-i18n="build-mentor">Quiero ser mentor/a</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ CIERRE ═══════════ -->
+<section id="cierre">
+  <h2 data-i18n="cierre-h2">Sé parte del primer encuentro de aviación e inteligencia artificial en la región.</h2>
+  <div class="cta-row">
+    <a href="#inscripcion" class="btn-dark" data-i18n="cierre-cta-summit">Inscribirme al Summit</a>
+    <a href="#hackathon-inscripcion" class="btn-outline" data-i18n="cierre-cta-hack">Inscribirme al Hackathon</a>
+  </div>
+</section>
+
+<footer>SKY.AI Summit · KEY Institute &amp; Aerojet · El Salvador, 2027</footer>
+
+
+<script>
+/* ─ FIDS scramble ─ Cambio 4 Julio - *8:57 PM */
+/* ─ FIDS live board ─ */
+(function(){
+  var C='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+  // Pool of realistic flights — edit freely
+  var FLIGHTS=[
+    {dest:'SAN SALVADOR', flight:'AV 397', gate:'A4', status:'ON TIME',  time:'09:15'},
+    {dest:'BOGOTA',       flight:'AV 213', gate:'B2', status:'BOARDING', time:'09:40'},
+    {dest:'PANAMA CITY',  flight:'CM 361', gate:'A7', status:'ON TIME',  time:'10:05'},
+    {dest:'HOUSTON',      flight:'UA 1421',gate:'B5', status:'GATE OPEN',time:'10:30'},
+    {dest:'MIAMI',        flight:'AA 918', gate:'A2', status:'ON TIME',  time:'10:55'},
+    {dest:'LOS ANGELES',  flight:'AV 560', gate:'B8', status:'BOARDING', time:'11:20'},
+    {dest:'NEW YORK JFK', flight:'B6 1810',gate:'A9', status:'ON TIME',  time:'11:45'},
+    {dest:'GUATEMALA',    flight:'AV 685', gate:'A1', status:'DEPARTED', time:'08:50'},
+    {dest:'SAN JOSE CR',  flight:'AV 631', gate:'B3', status:'ON TIME',  time:'12:10'},
+    {dest:'MEXICO CITY',  flight:'AM 673', gate:'A6', status:'GATE OPEN',time:'12:35'},
+    {dest:'TORONTO',      flight:'AC 1279',gate:'B7', status:'ON TIME',  time:'13:00'},
+    {dest:'MADRID',       flight:'IB 6314',gate:'A8', status:'BOARDING', time:'13:25'}
+  ];
+
+  var offset=0;
+
+  // Scramble FROM current text TO a new target, locking chars left→right
+  function sc(el,target,d){
+    setTimeout(function(){
+      var frame=0,total=target.length+6;
+      var t=setInterval(function(){
+        var out='';
+        for(var j=0;j<target.length;j++){
+          if(target[j]===' '){out+=' ';continue;}
+          // chars lock in progressively from the left
+          if(j<frame-4){out+=target[j];}
+          else{out+=C[Math.floor(Math.random()*C.length)];}
+        }
+        el.textContent=out;
+        if(++frame>=total){clearInterval(t);el.textContent=target;}
+      },45);
+    },d);
+  }
+
+  function run(){
+    // Los tableros estáticos (data-static) no rotan: mantienen sus vuelos fijos.
+    document.querySelectorAll('.fids-board:not([data-static])').forEach(function(b,bi){
+      var dests  =b.querySelectorAll('.fids-dest'),
+          flights=b.querySelectorAll('.fids-flight'),
+          gates  =b.querySelectorAll('.fids-gate'),
+          status =b.querySelectorAll('.fids-status'),
+          times  =b.querySelectorAll('.fids-time');
+
+      dests.forEach(function(el,i){
+        var f=FLIGHTS[(offset+bi*dests.length+i)%FLIGHTS.length];
+        var d=bi*180+i*110;
+        sc(el,f.dest,d);
+        if(flights[i]) sc(flights[i],f.flight,d+30);
+        if(gates[i])   sc(gates[i],  f.gate,  d+60);
+        if(status[i])  sc(status[i], f.status,d+90);
+        if(times[i])   sc(times[i],  f.time,  d+120);
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded',function(){
+    run();
+    setInterval(function(){offset++;run();},8000);
+  });
+})();
+/* ─ Agenda tabs ─ */
+document.addEventListener('DOMContentLoaded',function(){
+  var tabs=document.querySelectorAll('.agenda-tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      tabs.forEach(function(t){t.classList.remove('active');});
+      document.querySelectorAll('.agenda-list').forEach(function(l){l.classList.remove('active');});
+      tab.classList.add('active');
+      var day=document.getElementById('day-'+tab.dataset.day);
+      if(day) day.classList.add('active');
+    });
+  });
+});
+
+/* ─ Avión descendiendo con el scroll ─ */
+(function(){
+  var section=document.getElementById('plane-descent');
+  if(!section) return;
+  var frames=Array.prototype.slice.call(section.querySelectorAll('.plane-frame'));
+  var dots=Array.prototype.slice.call(section.querySelectorAll('.plane-descent-progress .dot'));
+  var total=frames.length;
+
+  function update(){
+    var rect=section.getBoundingClientRect();
+    var vh=window.innerHeight;
+    var scrollable=rect.height-vh;
+    if(scrollable<=0) return;
+    // progreso 0→1 mientras la sección atraviesa el viewport
+    var progress=(-rect.top)/scrollable;
+    progress=Math.max(0,Math.min(1,progress));
+
+    // qué fotograma toca mostrar
+    var idx=Math.min(total-1,Math.floor(progress*total));
+
+    frames.forEach(function(f,i){
+      f.classList.toggle('active', i===idx);
+      if(i===idx){
+        // dentro de su propio tramo, el avión baja y se acerca (scale) gradualmente
+        var slice=1/total;
+        var local=(progress-idx*slice)/slice; // 0→1 dentro del fotograma activo
+        var top=18+local*46; // vh: del 18% al 64%
+        var scale=0.85+local*0.28;
+        f.style.top=top+'vh';
+        f.style.transform='translate(-50%,0) scale('+scale.toFixed(3)+')';
+      }
+    });
+
+    dots.forEach(function(d,i){d.classList.toggle('active', i===idx);});
+  }
+
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  document.addEventListener('DOMContentLoaded',update);
+})();
+
+/* ─ Traducción ES ⇄ EN ─ */
+(function(){
+  var EN={
+    'nav-que-es':'What is Sky AI',
+    'nav-speakers':'Speakers',
+    'nav-agenda':'Agenda',
+    'cta-summit':'Register for the Summit',
+    'cta-hack':'Register for the Hackathon',
+    'hero-eyebrow':'An event organized by <span>KEY Institute</span> and <span>Aerojet</span>',
+    'hero-h1':'The region\u2019s first aviation + AI <b>Summit and Hackathon</b>.',
+    'meta-lugar-label':'Venue',
+    'meta-summit-value':'Saturday, January 23 · 8:00 AM – 7:00 PM',
+    'meta-hack-value':'Jan 23, 9:00 AM → Jan 24, 2:00 PM',
+    'sobre-label':'About the event',
+    'sobre-heading':'Where commercial<br>aviation lands<br>in the future',
+    'sobre-p1':'KEY Institute and Aerojet are creating the first space in Latin America where commercial aviation decision-makers gather to explore, debate, and co-create with artificial intelligence.',
+    'sobre-p2':'World-class content, CEO-level speakers from leading global companies, and a 29-hour hackathon that challenges the region\u2019s best talent.',
+    'sobre-venue-copy':'El Salvador — Two iconic venues for a complete summit experience: keynote talks, networking, hackathon workshops, and a VIP dinner in the Historic Center.',
+    'info-box-1':'Summit/ Sat Jan 23 — 8:00 AM',
+    'info-box-2':'Hack start/ Sat Jan 23 — 9:00 AM',
+    'info-box-3':'Hack close/ Sun Jan 24 — 5:00 PM',
+    'stat-sedes':'Venues',
+    'plane-eyebrow':'Final descent',
+    'plane-h3':'Landing in El Salvador',
+    'speakers-title':'Speakers:<br>Influencers in<br>the aviation<br>world',
+    'spk-ramon-role':'President / CEO',
+    'agenda-pre':'Flight Plan',
+    'agenda-title':'Day\u2019s Agenda',
+    'tab-summit':'Summit – Day 1',
+    's-act-1':'Attendee check-in',
+    's-act-2':'Opening ceremony',
+    's-act-3':'Keynote: AI in commercial aviation',
+    's-act-4':'Panel: AI use cases in operations',
+    's-act-6':'Keynote: The future of dispatch with AI',
+    's-act-7':'Lunch & Networking',
+    's-act-8':'Panel: AI in the passenger experience',
+    's-act-9':'Keynote: Safety and AI in aviation',
+    's-act-10':'Roundtable: Regulation and AI',
+    's-act-12':'Breakout sessions / Workshops',
+    's-act-13':'Summit closing',
+    'h1-act-1':'Hackathon kickoff',
+    'h1-act-2':'Team formation & briefing',
+    'h1-act-3':'Building begins',
+    'h1-act-4':'Lunch for hackers',
+    'h1-act-5':'Mentor check-in',
+    'h1-act-6':'Dinner for hackers',
+    'h2-act-1':'Breakfast for hackers',
+    'h2-act-2':'Final mentor session',
+    'h2-act-3':'Freeze — code lock',
+    'h2-act-4':'Final presentations',
+    'h2-act-5':'Judges\u2019 deliberation',
+    'h2-act-6':'Awards & closing',
+    'build-cta-summit':'Register for the <b>summit</b>',
+    'build-cta-hack':'Register for the <b>hackathon</b>',
+    'build-sponsor':'Become a sponsor',
+    'build-mentor':'Become a mentor',
+    'cierre-h2':'Be part of the region\u2019s first aviation and artificial intelligence gathering.',
+    'cierre-cta-summit':'Register for the Summit',
+    'cierre-cta-hack':'Register for the Hackathon'
+  };
+
+  var current='es';
+  var ES={};
+  var nodes={};
+
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key=el.getAttribute('data-i18n');
+    nodes[key]=el;
+    ES[key]=el.innerHTML;
+  });
+
+  function setLang(lang){
+    current=lang;
+    Object.keys(nodes).forEach(function(key){
+      var el=nodes[key];
+      if(lang==='en' && EN[key]){el.innerHTML=EN[key];}
+      else{el.innerHTML=ES[key];}
+    });
+    document.documentElement.lang=lang;
+    var toggle=document.getElementById('lang-toggle');
+    if(toggle){
+      toggle.querySelectorAll('.lang-opt').forEach(function(opt){
+        opt.classList.toggle('active', opt.dataset.lang===lang);
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded',function(){
+    var toggle=document.getElementById('lang-toggle');
+    if(!toggle) return;
+    toggle.addEventListener('click',function(){
+      setLang(current==='es' ? 'en' : 'es');
+    });
+  });
+})();
+</script>
+</body>
+</html>
