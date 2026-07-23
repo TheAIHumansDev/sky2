@@ -394,6 +394,35 @@ h1 b{
 }
 .stat-lbl{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1px;display:block;margin-top:8px;}
 
+/* ─── PATROCINADORES ────────────────────── */
+#patrocinadores{
+  position:relative;min-height:70vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;overflow:hidden;padding:0;
+}
+#patrocinadores .patro-bg{
+  position:absolute;inset:0;background-image:var(--bg-patrocinadores);
+  background-size:cover;background-position:center;z-index:0;
+}
+#patrocinadores .patro-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,5,18,.8) 0%,rgba(7,5,18,.35) 35%,rgba(7,5,18,.35) 65%,rgba(7,5,18,.85) 100%);
+  z-index:1;
+}
+.patro-content{position:relative;z-index:5;text-align:center;padding:110px 24px;max-width:900px;}
+.patro-label{font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-blue);margin-bottom:16px;}
+.patro-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--ice);
+  font-size:clamp(2.2rem,4.5vw,3.8rem);letter-spacing:-1px;line-height:1.1;margin-bottom:36px;
+}
+.patro-cta{
+  display:inline-block;font-family:'Manrope',sans-serif;font-size:1.05rem;font-weight:600;color:var(--ice);
+  text-decoration:none;padding:18px 40px;border-radius:999px;
+  background:rgba(118,84,253,.65);border:1px solid rgba(252,252,253,.25);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 8px 28px rgba(7,5,18,.4);transition:all .25s;
+}
+.patro-cta:hover{background:rgba(118,84,253,.88);transform:translateY(-2px);}
+
 /* ─── AGENDA DEL DÍA ────────────────────── */
 #agenda{background:#6b3ae6;padding:80px 64px;}   /* ligeramente más oscuro que violet */
 .agenda-header{text-align:center;margin-bottom:40px;}
@@ -923,6 +952,9 @@ document.addEventListener('DOMContentLoaded',function(){
     'plane-h3':'Landing in El Salvador',
     'speakers-title':'Speakers:<br>Influencers in<br>the aviation<br>world',
     'spk-kriete-role':'President / CEO',
+    'patro-label':'Sponsors',
+    'patro-title':'The companies that make this gathering possible',
+    'patro-cta':'Become a sponsor',
     'agenda-pre':'Flight Plan',
     'agenda-title':'Day\u2019s Agenda',
     'tab-summit':'Summit – Day 1',
