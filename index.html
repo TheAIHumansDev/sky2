@@ -105,6 +105,11 @@ nav{
   width:9px;height:9px;border-radius:50%;
   background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 0 12px var(--blue);
 }
+.logo img{
+  height:34px;max-height:34px;width:auto;max-width:140px;
+  object-fit:contain;display:block;flex-shrink:0;
+}
+  
 .nav-links{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
 .pill{
   font-family:'Manrope',sans-serif;font-size:.92rem;font-weight:600;color:var(--ice);
@@ -500,7 +505,7 @@ a:focus-visible,.pill:focus-visible,.agenda-tab:focus-visible{outline:2px solid 
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <nav>
-<div class="logo"><img src="logo-sky-ai-12.png" alt="SKY.AI"></div>    <div class="nav-links">
+<div class="logo"><img src="logo-sky-ai-12.png" alt="SKY.AI" width="60" height="34"></div>    <div class="nav-links">
       <a href="#sobre" class="pill" data-i18n="nav-que-es">Qué es Sky AI</a>
       <a href="#speakers" class="pill" data-i18n="nav-speakers">Speakers</a>
       <a href="#agenda" class="pill" data-i18n="nav-agenda">Agenda</a>
